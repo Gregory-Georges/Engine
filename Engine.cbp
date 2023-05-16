@@ -15,6 +15,7 @@
 				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="Engine" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="Engine" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,6 +38,10 @@
 			<Add option="-Wall" />
 			<Add option="-fpic" />
 		</Compiler>
+		<Linker>
+			<Add library="/usr/lib/x86_64-linux-gnu/libspdlog.so" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libfmt.so" />
+		</Linker>
 		<Unit filename="Engine/Application.cpp" />
 		<Unit filename="Engine/Application.hpp">
 			<Option target="&lt;{~None~}&gt;" />
@@ -45,6 +51,8 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="Engine/EntryPoint.hpp" />
+		<Unit filename="Engine/Log.cpp" />
+		<Unit filename="Engine/Log.hpp" />
 		<Unit filename="Engine/Platform.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions />

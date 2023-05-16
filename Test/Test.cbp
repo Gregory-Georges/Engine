@@ -21,8 +21,10 @@
 		</Compiler>
 		<Linker>
 			<Add library="../libEngine.so" />
+			<Add library="/lib/x86_64-linux-gnu/libspdlog.so" />
+			<Add library="/usr/lib/x86_64-linux-gnu/libfmt.so" />
 		</Linker>
-		<Unit filename="main.cpp" />
+		<Unit filename="Client.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -12,7 +12,7 @@
     #define dynamic __attribute__((visibility("default")))
 #endif
 
-#ifdef PLATFORM WINDOWS
+#ifdef PLATFORM_WINDOWS
     #define dynamic __declspec(dllexport)
 #endif
 
