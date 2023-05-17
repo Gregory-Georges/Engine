@@ -14,10 +14,10 @@ namespace Engine
     {
         public:
 
-            Application() = default;
-            virtual ~Application() = default;
+            dynamic Application() = default;
+            dynamic virtual ~Application() = default;
 
-            void Run();
+            dynamic void Run();
     };
 
     //

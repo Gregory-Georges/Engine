@@ -1,3 +1,4 @@
+require "codeblocks"
 workspace "Engine"
     architecture "x64"
     configurations
@@ -29,11 +30,6 @@ project "Engine"
         defines
         {
             "PLATFORM_LINUX",
-        }
-
-        postbuildcommands
-        {
-
         }
 
 
@@ -73,7 +69,9 @@ project "Test"
 
         links
         {
-            "Engine"
+            "/usr/lib/x86_64-linux-gnu/libspdlog.so"
+            "/lib/x86_64-linux-gnu/libfmt.so"
+            "../bin/Debug-linux-x86_64/Engine/libEngine.so"
         }
 
 
