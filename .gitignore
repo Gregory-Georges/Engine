@@ -34,3 +34,6 @@
 # CodeBlocks files
 *.layout
 *.depend
+*.workspace
+*.layout
+*.cbp

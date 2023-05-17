@@ -16,9 +16,6 @@ extern Engine::Application* Engine::CreateApplication();
 //
 int main()
 {
-    Engine::Log::Init();
-    ENGINE_CORE_TRACE("Hello");
-
     auto* app = Engine::CreateApplication();
     app->Run();
     delete app;
