@@ -69,8 +69,8 @@ project "Test"
 
         links
         {
-            "/usr/lib/x86_64-linux-gnu/libspdlog.so"
-            "/lib/x86_64-linux-gnu/libfmt.so"
+            "/usr/lib/x86_64-linux-gnu/libspdlog.so",
+            "/lib/x86_64-linux-gnu/libfmt.so",
             "../bin/Debug-linux-x86_64/Engine/libEngine.so"
         }
 
