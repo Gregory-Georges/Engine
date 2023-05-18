@@ -69,9 +69,10 @@ project "Test"
 
         links
         {
-            "/usr/lib/x86_64-linux-gnu/libspdlog.so",
-            "/lib/x86_64-linux-gnu/libfmt.so",
-            "../bin/Debug-linux-x86_64/Engine/libEngine.so"
+            -- Because of dependency problems, the links have to be manually done
+            -- libEngine.so in the bin folder
+            -- libfmt
+            -- libspdlog
         }
 
 
