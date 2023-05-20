@@ -1,10 +1,6 @@
 #ifndef LOG_HPP
 #define LOG_HPP
 
-#include <memory>
-#include <spdlog/spdlog.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-
 #include "Platform.hpp"
 #include "Debug.hpp"
 
@@ -15,8 +11,7 @@ namespace Engine
 After get logger function, the error functions can be :
 - warn
 - info
-
-as in Log::GetCoreLogger()->info("str");
+as in Log::GetCoreLogger()->info("msg");
 *******************************************************/
     class Log
     {

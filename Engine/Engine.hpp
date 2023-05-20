@@ -19,6 +19,14 @@
 #include "EntryPoint.hpp"
 //************************************
 
+//Events
+//************************************
+#include "Events/Event.hpp"
+#include "Events/ApplicationEvent.hpp"
+#include "Events/KeyEvent.hpp"
+#include "Events/MouseEvent.hpp"
+//************************************
+
 
 
 #endif // ENGINE_HPP_INCLUDED

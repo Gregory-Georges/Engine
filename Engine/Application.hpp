@@ -2,7 +2,6 @@
 #define APPLICATION_HPP
 
 #include "Platform.hpp"
-#include <exception>
 
 namespace Engine
 {

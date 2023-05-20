@@ -1,7 +1,6 @@
 #include <iostream>
 
-#include "../Engine/Engine.hpp"
-#include <spdlog/spdlog.h>
+#include "Engine/Engine.hpp"
 
 class Sandbox : public Engine::Application
 {

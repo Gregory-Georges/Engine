@@ -3,6 +3,7 @@
 
 
 
+//Is already defined by the project
 //#define PLATFORM_LINUX
 
 
