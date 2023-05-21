@@ -6,6 +6,7 @@
 //Standard headerfiles
 //***************************************************
 #include <memory>
+#include <functional>
 //***************************************************
 
 //Dependency headers

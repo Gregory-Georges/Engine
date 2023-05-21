@@ -21,5 +21,8 @@ class Sandbox : public Engine::Application
 
 Engine::Application* Engine::CreateApplication()
 {
+    Engine::Log::Init();
+    ENGINE_INFO("Window created");
+
     return new Sandbox();
 }
