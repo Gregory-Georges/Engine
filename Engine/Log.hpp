@@ -1,6 +1,8 @@
 #ifndef LOG_HPP
 #define LOG_HPP
 
+#include "pch.hpp"
+
 #include "Platform.hpp"
 #include "Debug.hpp"
 

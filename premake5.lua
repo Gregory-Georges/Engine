@@ -19,6 +19,14 @@ project "Engine"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    
+    pchheader "pch.hpp"
+    pchsource "pch.cpp"
+    
+    	postbuildcommands
+    	{
+    	    "cp ../bin/" .. outputdir .. "/%{prj.name}/libEngine.so ../Test/"
+    	}
 
         files
         {
@@ -55,9 +63,6 @@ project "Test"
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
     
-    pchheader "pch.hpp"
-    pchsource "pch.cpp"
-    
 
         files
         {
@@ -73,10 +78,10 @@ project "Test"
 
         links
         {
-            -- Because of dependency problems, the links have to be manually done
-            -- libEngine.so in the bin folder
-            -- libfmt
-            -- libspdlog
+            -- Links have to be done manually
+            -- libEngine, result of engine compilation
+                -- libfmt
+                -- libspdlog
         }
 
 
