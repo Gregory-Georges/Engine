@@ -7,6 +7,15 @@
 //***************************************************
 #include <memory>
 #include <functional>
+#include <iostream>
+//***************************************************
+
+//STL containers
+//***************************************************
+#include <vector>
+#include <list>
+#include <queue>
+#include <unordered_map>
 //***************************************************
 
 //Dependency headers

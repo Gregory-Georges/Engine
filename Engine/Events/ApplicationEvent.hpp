@@ -12,12 +12,10 @@ namespace Engine
         public:
 
             WindowResizeEvent(float x, float y) : new_x(x), new_y(y) {}
-
             EVENT_CLASS_TYPE(WindowResize);
-            EVENT_CLASS_CATEGORY(EventCategoryApplication);
 
-            float GetNewX() { return new_x; }
-            float GetNewY() { return new_y; }
+            unsigned int GetNewX() { return new_x; }
+            unsigned int GetNewY() { return new_y; }
 
 
 
@@ -32,7 +30,6 @@ namespace Engine
         public :
 
             EVENT_CLASS_TYPE(WindowClose);
-            EVENT_CLASS_CATEGORY(EventCategoryApplication);
     };
 
     class AppTickEvent : public Event
@@ -40,7 +37,6 @@ namespace Engine
         public:
 
             EVENT_CLASS_TYPE(AppTick);
-            EVENT_CLASS_CATEGORY(EventCategoryApplication);
     };
 
     class AppUpdateEvent : public Event
@@ -48,7 +44,6 @@ namespace Engine
         public :
 
             EVENT_CLASS_TYPE(AppUpdate);
-            EVENT_CLASS_CATEGORY(EventCategoryApplication);
     };
 
     class AppRenderEvent : public Event
@@ -56,7 +51,6 @@ namespace Engine
         public:
 
             EVENT_CLASS_TYPE(AppRender);
-            EVENT_CLASS_CATEGORY(EventCategoryApplication);
     };
 }
 

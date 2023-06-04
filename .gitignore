@@ -41,3 +41,6 @@ bin-int/
 *.workspace
 *.layout
 *.cbp
+
+#Valgring performance tests
+*/ValgrindOut.xml

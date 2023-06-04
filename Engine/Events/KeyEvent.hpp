@@ -15,7 +15,6 @@ namespace Engine
 	{
         public:
             KeyCode GetKeyCode() const { return mKeyCode; };
-            EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput);
 
         protected:
 
@@ -59,7 +58,7 @@ namespace Engine
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KeyReleased)
+		EVENT_CLASS_TYPE(KeyReleased);
 	};
 
 
@@ -77,7 +76,7 @@ namespace Engine
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KeyTyped)
+		EVENT_CLASS_TYPE(KeyTyped);
 	};
 }
 

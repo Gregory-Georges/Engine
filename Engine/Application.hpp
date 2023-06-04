@@ -1,7 +1,8 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
-#include "Platform.hpp"
+#include "Platform/Platform.hpp"
+#include "Events/EventManager.hpp"
 
 namespace Engine
 {

@@ -24,7 +24,6 @@ namespace Engine
             }
 
             EVENT_CLASS_TYPE(MouseMoved);
-            EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput);
 
         private:
 
@@ -50,7 +49,6 @@ namespace Engine
             }
 
             EVENT_CLASS_TYPE(MouseScrolled);
-            EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput);
 
         private:
 
@@ -64,7 +62,6 @@ namespace Engine
         public:
 
             MouseCode GetMouseButton() const { return m_Button; }
-            EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton);
 
         protected:
 
