@@ -3,15 +3,28 @@
 
 
 
+//Platform specific
+//************************************
+#include "Platform/Platform.hpp"
+#include "Platform/LinuxWindow.hpp"
+//************************************
+
 //defines debug mode macros
 //************************************
 #include "Debug.hpp"
+#include "Core.hpp"
+//************************************
+
+//Key codes
+//************************************
+#include "KeyCodes.hpp"
 //************************************
 
 //Engine
 //************************************
 #include "Application.hpp"
 #include "Log.hpp"
+#include "Window.hpp"
 //************************************
 
 //Entry point

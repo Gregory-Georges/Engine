@@ -24,8 +24,14 @@ int main()
     std::shared_ptr<Engine::Event> ev = std::make_shared<Engine::WindowResizeEvent>(2, 4);
     std::shared_ptr<Engine::Listener> li = std::make_shared<Engine::Listener>([](Engine::Event* e){ std::cout << e->GetName() << "\n"; }, nullptr);
     em.AddListener(Engine::EventType::WindowResize, li);
+    em.AddListener(Engine::EventType::WindowResize, li);
+
     em.QueueEvent(ev);
+    em.QueueEvent(ev);
+
     em.PollEvents();
+
+
 
     auto* app = Engine::CreateApplication();
     app->Run();
