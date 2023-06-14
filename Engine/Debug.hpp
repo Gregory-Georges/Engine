@@ -11,7 +11,7 @@
 #ifdef ENGINE_DEBUG
 
 #else
-    #error No support for release mode
+    #error No support for release mode yet
 #endif
 
 

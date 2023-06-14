@@ -2,6 +2,7 @@
 #define WINDOW_HPP
 
 #include "Platform/Platform.hpp"
+#include "Events/Event.hpp"
 
 #include <functional>
 
@@ -28,19 +29,18 @@ namespace Engine
 
     class Window
     {
-        dynamic virtual ~Window();
+        virtual ~Window();
 
-        dynamic virtual void OnUpdate() = 0;
+        virtual void OnUpdate() = 0;
 
-        dynamic virtual int GetWidth();
-        dynamic virtual int GetHeight();
+        virtual int GetWidth();
+        virtual int GetHeight();
 
-        //Event stuff
-        //dynamic virtual void SetEventCallback(const std::function<Event&>& callback) = 0;
-        dynamic virtual void SetVSync(bool enabled) = 0;
-        dynamic virtual bool IsVSync() = 0;
+        virtual void SetEventCallback(const std::function<void(Event*)>& callback) = 0;
+        virtual void SetVSync(bool enabled) = 0;
+        virtual bool IsVSync() = 0;
 
-        dynamic static Window* Create(const WindowProps& properties = WindowProps());
+        static Window* Create(const WindowProps& properties = WindowProps());
     };
 }
 

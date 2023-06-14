@@ -12,44 +12,41 @@ namespace Engine
 
     class LinuxWindow : public Window
     {
-        public:
+    public:
 
-            LinuxWindow(const WindowProps& wp);
-            virtual ~LinuxWindow();
+        LinuxWindow(const WindowProps& wp);
+        virtual ~LinuxWindow();
 
-            dynamic void OnUpdate() override;
+        dynamic void OnUpdate() override;
 
-            dynamic int GetWidth() override;
-            dynamic int GetHeight() override;
+        dynamic int GetWidth() override;
+        dynamic int GetHeight() override;
 
-            //Event stuff
-            //dynamic void SetEventCallback(const std::function<Event&>& callback) override;
-            dynamic void SetVSync(bool enabled) override;
-            dynamic bool IsVSync() override;
+        //Event stuff
+        dynamic void SetEventCallback(const std::function<void(Event*)>& callback) override;
+        dynamic void SetVSync(bool enabled) override;
+        dynamic bool IsVSync() override;
 
-            //More stuff
-            dynamic virtual void* GetNativeWindow();
+        //More stuff
+        dynamic virtual void* GetNativeWindow();
 
 
 
-        private:
+    private:
 
-            virtual void Init(const WindowProps& props);
-            virtual void Shutdown();
+        virtual void Init(const WindowProps& wp);
+        virtual void Shutdown();
 
-            GLFWwindow* m_Window;
-            //Scope<GraphicsContext> m_Context;
+        GLFWwindow* m_Window;
 
-            struct WindowData
-            {
-                std::string Title;
-                unsigned int Width, Height;
-                bool VSync;
+        struct WindowData
+        {
+            std::string Title;
+            unsigned int Width, Height;
+            bool VSync;
 
-                //EventCallbackFn callback;
-            };
-
-            WindowData m_Data;
+            //EventCallbackFn callback;
+        };
     };
 }
 

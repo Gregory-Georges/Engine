@@ -1,26 +1,24 @@
 #ifndef LISTENER_HPP_INCLUDED
 #define LISTENER_HPP_INCLUDED
 
+#include <memory>
 #include <functional>
 
-#include "Event.hpp"
 
 
-
-namespace Engine
+template<typename E>
+class Listener
 {
-    class Listener
-    {
-    public:
-        Listener(std::function<void(Event* event)> func, void* owner) : mOnEvent(func), mOwner(owner) {}
-        void OnEvent(Event* event) { mOnEvent(event); }
-        void* GetOwner() { return mOwner; }
+public:
 
-    private:
-        std::function<void(Event* event)> mOnEvent;
-        void* mOwner;
-    };
-}
+    Listener(std::function<bool(E&)> func) : m_onEvent(func) {}
+    bool Run(E& event) { return m_onEvent(event); }
+
+
+private:
+
+    std::function<bool(E&)> m_onEvent;
+};
 
 
 

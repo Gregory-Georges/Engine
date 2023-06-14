@@ -2,7 +2,6 @@
 #define APPLICATION_HPP
 
 #include "Platform/Platform.hpp"
-#include "Events/EventManager.hpp"
 
 namespace Engine
 {

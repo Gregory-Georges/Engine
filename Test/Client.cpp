@@ -6,17 +6,18 @@
 
 class Sandbox : public Engine::Application
 {
-    public:
+public:
 
-        Sandbox()
-        {
+    Sandbox()
+    {
 
-        }
 
-        ~Sandbox()
-        {
+    }
 
-        }
+    ~Sandbox()
+    {
+
+    }
 };
 
 Engine::Application* Engine::CreateApplication()
