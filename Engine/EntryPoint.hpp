@@ -2,9 +2,6 @@
 #define ENTRYPOINT_HPP_INCLUDED
 
 #include "Application.hpp"
-#include "Log.hpp"
-
-#include "Events/ApplicationEvent.hpp"
 
 
 
@@ -19,7 +16,10 @@ extern Engine::Application* Engine::CreateApplication();
 int main()
 {
     auto* app = Engine::CreateApplication();
-    app->Run();
+
+    while(app->m_isRunning)
+        app->Run();
+
     delete app;
 }
 

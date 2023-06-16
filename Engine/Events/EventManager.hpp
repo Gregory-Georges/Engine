@@ -40,6 +40,7 @@ namespace Engine
 
             //Checker function
             template<typename E> bool IsEventRegistered();
+            bool IsEventRegistered(EventType et);
             template<typename E> bool IsEventEmpty();
 
 

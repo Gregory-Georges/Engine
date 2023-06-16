@@ -1,6 +1,8 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+#include <GLFW/glfw3.h>
+
 #include "Events/EventManager.hpp"
 #include "Platform/Platform.hpp"
 
@@ -14,10 +16,12 @@ namespace Engine
     {
         public:
 
-            dynamic Application() = default;
+            dynamic Application();
             dynamic virtual ~Application() = default;
 
             dynamic void Run();
+
+            bool m_isRunning;
     };
 
     //

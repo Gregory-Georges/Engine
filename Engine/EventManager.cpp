@@ -63,7 +63,9 @@ void Engine::EventManager::PollEvents()
     for(unsigned int i = 0; i < event_size; ++i)
     {
         std::shared_ptr<Event> event = m_events.front();
-        m_dispatchers[event->GetEventType()]->Dispatch(event.get());
+
+        if(IsEventRegistered(event->GetEventType()))
+            m_dispatchers[event->GetEventType()]->Dispatch(event.get());
         m_events.pop();
     }
 }
@@ -81,6 +83,11 @@ template<typename E>
 bool Engine::EventManager::IsEventRegistered()
 {
     return m_dispatchers.find(E::GetStaticType()) != m_dispatchers.end();
+}
+
+bool Engine::EventManager::IsEventRegistered(EventType et)
+{
+    return m_dispatchers.find(et) != m_dispatchers.end();
 }
 
 template<typename E>
