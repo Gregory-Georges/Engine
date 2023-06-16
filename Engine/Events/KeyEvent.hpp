@@ -30,14 +30,7 @@ namespace Engine
             KeyPressedEvent(const KeyCode keycode, bool isRepeat = false) : KeyEvent(keycode), mIsRepeat(isRepeat) {}
             bool IsRepeat() const { return mIsRepeat; }
 
-            std::string ToString() const override
-            {
-                std::stringstream ss;
-                ss << "KeyPressedEvent: " << mKeyCode << " (repeat = " << mIsRepeat << ")";
-                return ss.str();
-            }
-
-            EVENT_CLASS_TYPE(KeyPressed);
+            EVENT_TYPE(KeyPressed);
 
         private:
             bool mIsRepeat;
@@ -51,14 +44,7 @@ namespace Engine
 		KeyReleasedEvent(const KeyCode keycode)
 			: KeyEvent(keycode) {}
 
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyReleasedEvent: " << mKeyCode;
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(KeyReleased);
+		EVENT_TYPE(KeyReleased);
 	};
 
 
@@ -69,14 +55,7 @@ namespace Engine
 		KeyTypedEvent(const KeyCode keycode)
 			: KeyEvent(keycode) {}
 
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyTypedEvent: " << mKeyCode;
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(KeyTyped);
+		EVENT_TYPE(KeyTyped);
 	};
 }
 

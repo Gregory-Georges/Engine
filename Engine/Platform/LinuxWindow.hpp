@@ -3,7 +3,12 @@
 
 #include <GLFW/glfw3.h>
 
+#include "../Events/EventManager.hpp"
+#include "../Events/ApplicationEvent.hpp"
+#include "../Events/KeyEvent.hpp"
+#include "../Events/MouseEvent.hpp"
 #include "../Window.hpp"
+#include "../Log.hpp"
 
 
 
@@ -15,39 +20,40 @@ namespace Engine
     public:
 
         LinuxWindow(const WindowProps& wp);
-        virtual ~LinuxWindow();
+        ~LinuxWindow();
 
-        dynamic void OnUpdate() override;
+        void OnUpdate() override;
 
-        dynamic int GetWidth() override;
-        dynamic int GetHeight() override;
+        unsigned int GetWidth() override;
+        unsigned int GetHeight() override;
 
-        //Event stuff
-        dynamic void SetEventCallback(const std::function<void(Event*)>& callback) override;
-        dynamic void SetVSync(bool enabled) override;
-        dynamic bool IsVSync() override;
+        void SetVSync(bool enabled) override;
+        bool IsVSync() override;
 
         //More stuff
-        dynamic virtual void* GetNativeWindow();
+        void* GetNativeWindow();
 
 
 
     private:
 
-        virtual void Init(const WindowProps& wp);
-        virtual void Shutdown();
+        void Init(const WindowProps& wp);
+        void Shutdown();
 
-        GLFWwindow* m_Window;
 
         struct WindowData
         {
             std::string Title;
-            unsigned int Width, Height;
+            int Width, Height;
             bool VSync;
-
-            //EventCallbackFn callback;
         };
+
+        GLFWwindow* m_Window;
+        WindowData m_data;
+        static int window_count;
     };
 }
+
+
 
 #endif // LINUXWINDOW_HPP

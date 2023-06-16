@@ -29,14 +29,16 @@ namespace Engine
 
     class Window
     {
-        virtual ~Window();
+    public:
+
+        virtual ~Window() = default;
+        Window() = default;
 
         virtual void OnUpdate() = 0;
 
-        virtual int GetWidth();
-        virtual int GetHeight();
+        virtual unsigned int GetWidth() = 0;
+        virtual unsigned int GetHeight() = 0;
 
-        virtual void SetEventCallback(const std::function<void(Event*)>& callback) = 0;
         virtual void SetVSync(bool enabled) = 0;
         virtual bool IsVSync() = 0;
 

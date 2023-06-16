@@ -43,6 +43,13 @@
 #include "Events/Listener.hpp"
 //*********************************************************
 
+//Platform specific
+//*********************************************************
+#ifdef PLATFORM_LINUX
+#include "Platform/LinuxWindow.hpp"
+#endif
+//*********************************************************
+
 
 
 #endif // ENGINE_HPP_INCLUDED

@@ -4,6 +4,7 @@
 #include <memory>
 #include <map>
 
+#include "Listener.hpp"
 #include "Event.hpp"
 
 
@@ -12,43 +13,41 @@ using ID = uint32_t;
 
 
 
-class IDispatcher
+namespace Engine
 {
-public:
-    virtual ~IDispatcher() = default;
+    class IDispatcher
+    {
+    public:
+        virtual ~IDispatcher() = default;
 
-    virtual void Dispatch(Event* e) = 0;
-    virtual void AddListener(ID key, std::shared_ptr<void> lis) = 0;
-    virtual void RemoveListener(ID key) = 0;
-    virtual bool IsEmpty() = 0;
-};
-
-
-
-//Template E is the event type
-template<typename E>
-class Dispatcher : public IDispatcher
-{
-public:
-
-    Dispatcher() = default;
-    ~Dispatcher() = default;
-    void Dispatch(Event* e) override;
-    void AddListener(ID key, std::shared_ptr<void> lis) override;
-    void RemoveListener(ID key) override;
-    bool IsEmpty() override;
+        virtual void Dispatch(Event* e) = 0;
+        virtual void AddListener(ID key, std::shared_ptr<void> lis) = 0;
+        virtual void RemoveListener(ID key) = 0;
+        virtual bool IsEmpty() = 0;
+    };
 
 
 
-private:
+    //Template E is the event type
+    template<typename E>
+    class Dispatcher : public IDispatcher
+    {
+    public:
 
-    std::multimap<ID, std::shared_ptr<Listener<E>>> m_listeners;
-};
+        Dispatcher() = default;
+        ~Dispatcher() = default;
+        void Dispatch(Event* e) override;
+        void AddListener(ID key, std::shared_ptr<void> lis) override;
+        void RemoveListener(ID key) override;
+        bool IsEmpty() override;
 
 
 
+    private:
 
-
+        std::multimap<ID, std::shared_ptr<Listener<E>>> m_listeners;
+    };
+}
 
 
 
@@ -58,25 +57,30 @@ private:
 
 
 
-template<typename E> void Dispatcher<E>::Dispatch(Event* e)
+
+
+
+
+
+template<typename E> void Engine::Dispatcher<E>::Dispatch(Event* e)
 {
     E* event = (E*)(e);
     for(auto& pair : m_listeners)
         pair.second->Run(*event);
 }
 
-template<typename E> void Dispatcher<E>::AddListener(ID key, std::shared_ptr<void> lis)
+template<typename E> void Engine::Dispatcher<E>::AddListener(ID key, std::shared_ptr<void> lis)
 {
     std::shared_ptr<Listener<E>> li = std::reinterpret_pointer_cast<Listener<E>>(lis);
     m_listeners.insert({key, li});
 }
 
-template<typename E> void Dispatcher<E>::RemoveListener(ID key)
+template<typename E> void Engine::Dispatcher<E>::RemoveListener(ID key)
 {
     m_listeners.erase(key);
 }
 
-template<typename E> bool Dispatcher<E>::IsEmpty()
+template<typename E> bool Engine::Dispatcher<E>::IsEmpty()
 {
     return m_listeners.size() > 0;
 }
