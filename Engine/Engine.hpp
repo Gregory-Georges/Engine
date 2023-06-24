@@ -6,7 +6,10 @@
 //Platform specific
 //*********************************************************
 #include "Platform/Platform.hpp"
+
+#ifdef PLATFORM_LINUX
 #include "Platform/LinuxWindow.hpp"
+#endif
 //*********************************************************
 
 //defines debug mode macros
@@ -41,13 +44,6 @@
 #include "Events/Dispatcher.hpp"
 #include "Events/EventManager.hpp"
 #include "Events/Listener.hpp"
-//*********************************************************
-
-//Platform specific
-//*********************************************************
-#ifdef PLATFORM_LINUX
-#include "Platform/LinuxWindow.hpp"
-#endif
 //*********************************************************
 
 
