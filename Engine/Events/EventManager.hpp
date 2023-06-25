@@ -3,6 +3,7 @@
 
 #include <queue>
 #include <memory>
+#include <unordered_map>
 
 #include "../Platform/Platform.hpp"
 #include "Event.hpp"
@@ -14,40 +15,40 @@ namespace Engine
 {
     class EventManager
     {
-        public:
+    public:
 
-            //Singleton function
-            dynamic static EventManager* Get();
+        //Singleton function
+        static EventManager* Get();
 
-            //Listener management
-            template<typename E> dynamic void AddListener(ID key, std::shared_ptr<void> listener);
-            template<typename E> dynamic void RemoveListener(ID key);
-            dynamic void ListenerDeleted(ID key);
-
-
-
-            //Event management
-            dynamic void QueueEvent(std::shared_ptr<Event> event);
-            dynamic void PollEvents();
-            dynamic void ClearEvents();
+        //Listener management
+        template<typename E> void AddListener(ID key, std::shared_ptr<void> listener);
+        template<typename E> void RemoveListener(ID key);
+        void ListenerDeleted(ID key);
 
 
 
-        private:
-
-            //Constructor
-            EventManager() = default;
-
-            //Checker function
-            template<typename E> bool IsEventRegistered();
-            bool IsEventRegistered(EventType et);
-            template<typename E> bool IsEventEmpty();
+        //Event management
+        void QueueEvent(std::shared_ptr<Event> event);
+        void PollEvents();
+        void ClearEvents();
 
 
 
-            //Members
-            std::queue<std::shared_ptr<Event>> m_events;
-            std::unordered_map<EventType, std::shared_ptr<IDispatcher>> m_dispatchers;
+    private:
+
+        //Constructor
+        EventManager() = default;
+
+        //Checker function
+        template<typename E> bool IsEventRegistered();
+        bool IsEventRegistered(EventType et);
+        template<typename E> bool IsEventEmpty();
+
+
+
+        //Members
+        std::queue<std::shared_ptr<Event>> m_events;
+        std::unordered_map<EventType, std::shared_ptr<IDispatcher>> m_dispatchers;
     };
 }
 
