@@ -78,10 +78,12 @@ project "Test"
 
         links
         {
-            -- Links have to be done manually
-            -- libEngine, result of engine compilation
-                -- libfmt
-                -- libspdlog
+            "fmt",
+            "spdlog",
+            "glfw",
+            "GLEW",
+            "GL",
+            "Engine"
         }
 
 
