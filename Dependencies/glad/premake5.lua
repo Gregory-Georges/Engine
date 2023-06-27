@@ -1,5 +1,5 @@
 require "codeblocks"
-workspace "Engine"
+workspace "glad"
     architecture "x64"
     configurations
     {
