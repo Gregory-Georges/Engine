@@ -20,9 +20,14 @@ project "glad"
     
         files
         {
-            "%**.h",
-            "%**.hpp",
-            "%**.cpp"
+            "include/glad/glad.h",
+            "include/KHR/khrplatform.h",
+            "src/glad.c"
+        }
+        
+        includedirs
+        {
+            "include"
         }
         
 
