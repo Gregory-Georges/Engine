@@ -31,6 +31,7 @@ project "Engine"
         files
         {
             "%{prj.name}/**.h",
+            "%{prj.name}/**.c",
             "%{prj.name}/**.hpp",
             "%{prj.name}/**.cpp"
         }
@@ -45,7 +46,8 @@ project "Engine"
             "fmt",
             "spdlog",
             "glfw",
-            "GL"
+            "GL",
+            "Dependencies/glad/glad"
         }
 
 
@@ -90,7 +92,8 @@ project "Test"
             "spdlog",
             "glfw",
             "GL",
-            "Engine"
+            "Engine",
+            "Dependencies/glad/glad"
         }
 
 
