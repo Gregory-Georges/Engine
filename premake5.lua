@@ -39,6 +39,16 @@ project "Engine"
         {
             "PLATFORM_LINUX",
         }
+        
+        links
+        {
+            "fmt",
+            "spdlog",
+            "glfw",
+            "GLEW",
+            "GL",
+            "Engine"
+        }
 
 
         filter "Configurations:Debug"
