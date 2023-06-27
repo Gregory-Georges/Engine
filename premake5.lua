@@ -45,9 +45,7 @@ project "Engine"
             "fmt",
             "spdlog",
             "glfw",
-            "GLEW",
-            "GL",
-            "Engine"
+            "GL"
         }
 
 
@@ -91,7 +89,6 @@ project "Test"
             "fmt",
             "spdlog",
             "glfw",
-            "GLEW",
             "GL",
             "Engine"
         }
