@@ -12,6 +12,10 @@ workspace "Engine"
     outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 
+------------------------------------------------------------------------------
+-- Engine
+------------------------------------------------------------------------------
+
 project "Engine"
     location "Engine"
     kind "sharedlib"
@@ -70,19 +74,31 @@ project "Engine"
 
 
 
+------------------------------------------------------------------------------
+-- Test
+------------------------------------------------------------------------------
+
 project "Test"
     location "Test"
     kind "ConsoleApp"
     language "C++"
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
-    objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+    objdir("bin-int/" .. outputdir .. "/%(prj.name}")
     
-
+        files
+        {
+            "%{prj.name}/**.cpp",
+            "%{prj.name}/**.hpp",
+            "%{prj.name}/**.c",
+            "%{prj.name}/**.h"
+        }
+        
         includedirs
-    	{
-    	    "Dependencies/glad/include"
-    	}
+        {
+            "include",
+            "Dependencies/glad/include"
+        }
     	
     	files
         {
@@ -106,6 +122,45 @@ project "Test"
             "Dependencies/glad/glad"
         }
 
+
+        filter "Configurations:Debug"
+            defines "ENGINE_DEBUG"
+            optimize "on"
+
+        filter "Configurations:Release"
+            defines "ENGINE_RELEASE"
+            optimize "on"
+
+        filter "Configurations:Dist"
+            defines "ENGINE_DIST"
+            optimize "on"
+            
+            
+       
+------------------------------------------------------------------------------
+-- glad
+------------------------------------------------------------------------------
+     
+project "glad"
+    location "Dependencies/glad"
+    kind "staticlib"
+    language "C++"
+
+    targetdir ("Dependencies/glad/")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    
+        files
+        {
+            "Dependencies/glad/src/glad.c",
+            "Dependencies/glad/include/glad/glad.h",
+            "Dependencies/glad/include/KHR/khr.h"
+        }
+        
+        includedirs
+        {
+            "Dependencies/glad/include"
+        }
+        
 
         filter "Configurations:Debug"
             defines "ENGINE_DEBUG"

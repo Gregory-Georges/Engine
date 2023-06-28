@@ -29,7 +29,7 @@
 #include "KeyCodes.hpp"
 //*********************************************************
 
-//Engine
+//Engine interface
 //*********************************************************
 #include "Application.hpp"
 #include "Log.hpp"
