@@ -23,6 +23,11 @@ project "Engine"
     pchheader "pch.hpp"
     pchsource "pch.cpp"
     
+    	includedirs
+    	{
+    	    "Dependencies/glad/include"
+    	}
+    	
     	postbuildcommands
     	{
     	    "cp ../bin/" .. outputdir .. "/%{prj.name}/libEngine.so ../Test/"
@@ -74,7 +79,12 @@ project "Test"
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
     
 
-        files
+        includedirs
+    	{
+    	    "Dependencies/glad/include"
+    	}
+    	
+    	files
         {
             "%{prj.name}/**.h",
             "%{prj.name}/**.hpp",
