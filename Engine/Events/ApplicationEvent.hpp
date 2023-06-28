@@ -25,6 +25,24 @@ namespace Engine
             int new_y;
     };
 
+    class WindowMovedEvent : public Event
+    {
+        public:
+
+            WindowMovedEvent(int new_x, int new_y) : new_x(new_x), new_y(new_y) {}
+            EVENT_TYPE(WindowMoved);
+
+            int GetNewx() { return new_x; }
+            int GetNewy() { return new_y; }
+
+
+
+        private:
+
+            int new_x;
+            int new_y;
+    };
+
     class WindowCloseEvent : public Event
     {
         public :

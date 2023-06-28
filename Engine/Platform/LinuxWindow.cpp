@@ -97,6 +97,12 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
         ENGINE_INFO("Window size callback occurred");
     });
 
+    glfwSetWindowPosCallback(m_Window, [](GLFWwindow* window, int new_x, int new_y)
+    {
+        SEND_EVENT(WindowMovedEvent, new_x, new_y);
+        ENGINE_CORE_INFO("Window position callback occurred");
+    });
+
     glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
     {
         WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
