@@ -1,11 +1,8 @@
-[submodule "Dependencies/glfw"]
-	path = Dependencies/glfw
-	url = https://github.com/glfw/glfw
 [submodule "glfw"]
 	path = Dependencies/glfw
 	url = https://github.com/glfw/glfw
-[submodule "glew"]
-	path = Dependencies/glew
+[submodule "glad"]
+	path = Dependencies/glad
 	url = https://github.com/nigels-com/glew
 [submodule "fmt"]
 	path = Dependencies/fmt
@@ -13,6 +10,6 @@
 [submodule "spdlog"]
 	path = Dependencies/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Dependencies/imgui"]
+[submodule "imgui"]
 	path = Dependencies/imgui
 	url = https://github.com/ocornut/imgui
