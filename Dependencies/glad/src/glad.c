@@ -7,15 +7,15 @@
     APIs: gl=4.0
     Profile: compatibility
     Extensions:
-        
-    Loader: True
+
+	Loader: True
     Local files: False
     Omit khrplatform: False
     Reproducible: False
 
     Commandline:
         --profile="compatibility" --api="gl=4.0" --generator="c" --spec="gl" --extensions=""
-    Online:
+	Online:
         https://glad.dav1d.de/#profile=compatibility&language=c&specification=gl&loader=on&api=gl%3D4.0
 */
 

@@ -148,13 +148,13 @@ project "glad"
     language "C++"
 
     targetdir ("Dependencies/glad/")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%(prj.name}")
     
         files
         {
             "Dependencies/glad/src/glad.c",
             "Dependencies/glad/include/glad/glad.h",
-            "Dependencies/glad/include/KHR/khr.h"
+            "Dependencies/glad/include/KHR/khrplatform.h"
         }
         
         includedirs

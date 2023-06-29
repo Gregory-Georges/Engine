@@ -79,7 +79,8 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     if(m_Window == nullptr)
         ENGINE_CORE_ERROR("Could not create linux window");
 
-    //Set window vsync
+    //Other parameters
+    glViewport(0, 0, wp.width, wp.height);
     SetVSync(true);
 
 
@@ -92,6 +93,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
         Data.Width = width;
         Data.Height = height;
+        glViewport(0, 0, width, height);
 
         SEND_EVENT(WindowResizeEvent, width, height);
         ENGINE_INFO("Window size callback occurred");
