@@ -164,13 +164,51 @@ project "glad"
         
 
         filter "Configurations:Debug"
-            defines "ENGINE_DEBUG"
             optimize "on"
 
         filter "Configurations:Release"
-            defines "ENGINE_RELEASE"
             optimize "on"
 
         filter "Configurations:Dist"
-            defines "ENGINE_DIST"
             optimize "on"
+            
+            
+            
+------------------------------------------------------------------------------
+-- imgui
+------------------------------------------------------------------------------
+     
+project "imgui"
+    location "Dependencies/imgui"
+    kind "staticlib"
+    language "C++"
+
+    targetdir ("Dependencies/imgui/")
+    objdir ("bin-int/" .. outputdir .. "/%(prj.name}")
+    
+        files
+        {
+            "Dependencies/imgui/**.c",
+            "Dependencies/imgui/**.h",
+            "Dependencies/imgui/**.cpp",
+            "Dependencies/imgui/**.hpp"
+        }
+        
+        includedirs
+        {
+            "Dependencies/imgui",
+            "Dependencies/imgui/include"
+        }
+
+        filter "Configurations:Debug"
+            optimize "on"
+
+        filter "Configurations:Release"
+            optimize "on"
+
+        filter "Configurations:Dist"
+            optimize "on"
+            
+            
+            
+
