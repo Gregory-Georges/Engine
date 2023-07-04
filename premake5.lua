@@ -57,7 +57,8 @@ project "Engine"
             "spdlog",
             "glfw",
             "GL",
-            "Dependencies/glad/glad"
+            "Dependencies/glad/glad",
+            "Dependencies/imgui/imgui"
         }
 
 
@@ -85,7 +86,7 @@ project "Test"
     language "C++"
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
-    objdir("bin-int/" .. outputdir .. "/%(prj.name}")
+    objdir("bin-int/" .. outputdir .. "/%{prj.name}")
     
         files
         {
@@ -120,7 +121,8 @@ project "Test"
             "glfw",
             "GL",
             "Engine",
-            "Dependencies/glad/glad"
+            "Dependencies/glad/glad",
+            "Dependencies/imgui/imgui"
         }
 
 
@@ -148,7 +150,7 @@ project "glad"
     language "C++"
 
     targetdir ("Dependencies/glad/")
-    objdir ("bin-int/" .. outputdir .. "/%(prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     
         files
         {
@@ -180,24 +182,26 @@ project "glad"
      
 project "imgui"
     location "Dependencies/imgui"
-    kind "staticlib"
+    kind "sharedlib"
     language "C++"
 
     targetdir ("Dependencies/imgui/")
-    objdir ("bin-int/" .. outputdir .. "/%(prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     
         files
         {
-            "Dependencies/imgui/**.c",
-            "Dependencies/imgui/**.h",
-            "Dependencies/imgui/**.cpp",
-            "Dependencies/imgui/**.hpp"
+            "Dependencies/imgui/*.h",
+            "Dependencies/imgui/*.cpp",
+            "Dependencies/imgui/backends/imgui_impl_opengl3.h",
+            "Dependencies/imgui/backends/imgui_impl_opengl3.cpp",
+            "Dependencies/imgui/backends/imgui_impl_opengl3_loader.h",
+            "Dependencies/imgui/backends/imgui_impl_glfw.h",
+            "Dependencies/imgui/backends/imgui_impl_glfw.cpp"
         }
         
         includedirs
         {
-            "Dependencies/imgui",
-            "Dependencies/imgui/include"
+            "Dependencies/imgui/"
         }
 
         filter "Configurations:Debug"
