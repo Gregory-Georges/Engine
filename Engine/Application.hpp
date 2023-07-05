@@ -5,6 +5,7 @@
 
 #include "Events/EventManager.hpp"
 #include "Platform/Platform.hpp"
+#include "LayerStack.hpp"
 
 namespace Engine
 {
@@ -21,7 +22,14 @@ namespace Engine
 
             dynamic void Run();
 
+            void PushLayer(Layer* layer);
+            void PushOverlay(Layer* overlay);
+
             bool m_isRunning;
+
+        private:
+
+            LayerStack m_layer_stack;
     };
 
     //
@@ -31,3 +39,5 @@ namespace Engine
 }
 
 #endif // APPLICATION_HPP
+
+
