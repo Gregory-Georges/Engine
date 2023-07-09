@@ -30,7 +30,8 @@ project "Engine"
     
     	includedirs
     	{
-    	    "Dependencies/glad/include"
+    	    "Dependencies/glad/include",
+    	    "Dependencies/imgui"
     	}
     	
     	postbuildcommands
@@ -99,7 +100,8 @@ project "Test"
         includedirs
         {
             "include",
-            "Dependencies/glad/include"
+            "Dependencies/glad/include",
+            "Dependencies/imgui/imgui"
         }
     	
     	files

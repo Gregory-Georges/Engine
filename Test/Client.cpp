@@ -9,7 +9,6 @@ public:
     Sandbox()
     {
         m_window = new Engine::LinuxWindow(Engine::WindowProps());
-
     }
 
     ~Sandbox()
