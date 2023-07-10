@@ -148,7 +148,7 @@ project "Test"
      
 project "glad"
     location "Dependencies/glad"
-    kind "staticlib"
+    kind "sharedlib"
     language "C++"
 
     targetdir ("Dependencies/glad/")
@@ -156,9 +156,7 @@ project "glad"
     
         files
         {
-            "Dependencies/glad/src/glad.c",
-            "Dependencies/glad/include/glad/glad.h",
-            "Dependencies/glad/include/KHR/khrplatform.h"
+            "Dependencies/glad/src/glad.c"
         }
         
         includedirs
@@ -192,12 +190,8 @@ project "imgui"
     
         files
         {
-            "Dependencies/imgui/*.h",
             "Dependencies/imgui/*.cpp",
-            "Dependencies/imgui/backends/imgui_impl_opengl3.h",
             "Dependencies/imgui/backends/imgui_impl_opengl3.cpp",
-            "Dependencies/imgui/backends/imgui_impl_opengl3_loader.h",
-            "Dependencies/imgui/backends/imgui_impl_glfw.h",
             "Dependencies/imgui/backends/imgui_impl_glfw.cpp"
         }
         

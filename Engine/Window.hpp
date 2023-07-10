@@ -31,8 +31,8 @@ namespace Engine
     {
     public:
 
-        virtual ~Window() = default;
         Window() = default;
+        virtual ~Window() = default;
 
         virtual void OnUpdate() = 0;
 

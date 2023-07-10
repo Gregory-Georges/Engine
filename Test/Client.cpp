@@ -21,7 +21,5 @@ public:
 
 Engine::Application* Engine::CreateApplication()
 {
-    Engine::Log::Init();
-
     return new Sandbox();
 }

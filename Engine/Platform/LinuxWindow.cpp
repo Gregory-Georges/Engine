@@ -10,6 +10,7 @@ int Engine::LinuxWindow::window_count = 0;
 Engine::LinuxWindow::LinuxWindow(const WindowProps& wp)
 {
     Init(wp);
+    ++window_count;
 }
 
 Engine::LinuxWindow::~LinuxWindow()
@@ -75,13 +76,26 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
     //Create window
     m_Window = glfwCreateWindow(m_data.Width, m_data.Height, m_data.Title.c_str(), NULL, NULL);
-    glfwSetWindowUserPointer(m_Window, &m_data);
     if(m_Window == nullptr)
         ENGINE_CORE_ERROR("Could not create linux window");
+    glfwSetWindowUserPointer(m_Window, &m_data);
+    glfwMakeContextCurrent(m_Window);
+
+    //Init glad
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+        ENGINE_CORE_ERROR("Could not to initialize GLAD");
 
     //Other parameters
     glViewport(0, 0, wp.width, wp.height);
     SetVSync(true);
+
+    //
+
+    ENGINE_CORE_INFO("5");
+
+    //Initialize GLAD
+    //if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    //        ENGINE_CORE_ERROR("Failed to initialize GLAD\n");
 
 
 

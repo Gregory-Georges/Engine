@@ -1,8 +1,10 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+//#include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
+#include "Log.hpp"
 #include "Events/EventManager.hpp"
 #include "Platform/Platform.hpp"
 #include "LayerStack.hpp"

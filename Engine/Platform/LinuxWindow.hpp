@@ -1,6 +1,7 @@
 #ifndef LINUXWINDOW_HPP
 #define LINUXWINDOW_HPP
 
+#include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
 #include "../Events/EventManager.hpp"

@@ -6,7 +6,7 @@ namespace Engine
     Application::Application() :
         m_isRunning(true)
     {
-
+        Engine::Log::Init();
     }
 
 

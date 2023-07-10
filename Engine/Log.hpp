@@ -1,7 +1,8 @@
 #ifndef LOG_HPP
 #define LOG_HPP
 
-#include "pch.hpp"
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/stdout_color_sinks.h>
 
 #include "Platform/Platform.hpp"
 #include "Debug.hpp"
@@ -9,26 +10,20 @@
 
 namespace Engine
 {
-/*******************************************************
-After get logger function, the error functions can be :
-- warn
-- info
-as in Log::GetCoreLogger()->info("msg");
-*******************************************************/
     class Log
     {
-        public:
+    public:
 
-            dynamic static void Init();
-            dynamic inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return mCore_logger; }
-            dynamic inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return mClient_logger; }
+        dynamic static void Init();
+        dynamic inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return mCore_logger; }
+        dynamic inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return mClient_logger; }
 
 
 
-        private:
+    private:
 
-            static std::shared_ptr<spdlog::logger> mCore_logger;
-            static std::shared_ptr<spdlog::logger> mClient_logger;
+        static std::shared_ptr<spdlog::logger> mCore_logger;
+        static std::shared_ptr<spdlog::logger> mClient_logger;
     };
 
 }
