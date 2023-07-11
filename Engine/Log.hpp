@@ -14,14 +14,15 @@ namespace Engine
     {
     public:
 
-        dynamic static void Init();
-        dynamic inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return mCore_logger; }
-        dynamic inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return mClient_logger; }
+        static void Init();
+        inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return mCore_logger; }
+        inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return mClient_logger; }
 
 
 
     private:
 
+        Log() {}
         static std::shared_ptr<spdlog::logger> mCore_logger;
         static std::shared_ptr<spdlog::logger> mClient_logger;
     };

@@ -89,14 +89,6 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     glViewport(0, 0, wp.width, wp.height);
     SetVSync(true);
 
-    //
-
-    ENGINE_CORE_INFO("5");
-
-    //Initialize GLAD
-    //if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    //        ENGINE_CORE_ERROR("Failed to initialize GLAD\n");
-
 
 
     //Set window callback functions

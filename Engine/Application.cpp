@@ -13,11 +13,8 @@ namespace Engine
 
     void Application::Run()
     {
-        while(true)
-        {
-            glfwPollEvents();
-            POLL_EVENTS();
-        }
+        glfwPollEvents();
+        POLL_EVENTS();
     }
 
 

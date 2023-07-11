@@ -101,7 +101,7 @@ project "Test"
         {
             "include",
             "Dependencies/glad/include",
-            "Dependencies/imgui/imgui"
+            "Dependencies/imgui"
         }
     	
     	files

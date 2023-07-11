@@ -10,6 +10,13 @@
 #include <GLFW/glfw3.h>
 //*********************************************************
 
+//Layers
+//*********************************************************
+#include "Layer.hpp"
+#include "LayerStack.hpp"
+#include "ImGuiLayer.hpp"
+//*********************************************************
+
 //Platform specific
 //*********************************************************
 #include "Platform/Platform.hpp"
@@ -51,12 +58,6 @@
 #include "Events/Dispatcher.hpp"
 #include "Events/EventManager.hpp"
 #include "Events/Listener.hpp"
-//*********************************************************
-
-//Layers
-//*********************************************************
-#include "Layer.hpp"
-#include "LayerStack.hpp"
 //*********************************************************
 
 
