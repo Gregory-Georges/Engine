@@ -19,7 +19,6 @@ namespace Engine
 		virtual void OnRender() {}
 		virtual void OnEvent(Event& event) {}
 	};
-
 }
 
 

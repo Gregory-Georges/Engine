@@ -24,8 +24,7 @@ namespace Engine
 
         //Push ImGui overlay
         #ifdef ENGINE_DEBUG
-        Engine::ImGuiLayer* igl = new Engine::ImGuiLayer();
-        PushOverlay(igl);
+        PushOverlay(new Engine::ImGuiLayer());
         #endif // ENGINE_DEBUG
     }
 
