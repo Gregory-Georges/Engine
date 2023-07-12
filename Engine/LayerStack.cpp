@@ -9,7 +9,6 @@ namespace Engine {
 	{
 		for (Layer* layer : m_Layers)
 		{
-			layer->OnDetach();
 			delete layer;
 		}
 	}
@@ -23,6 +22,7 @@ namespace Engine {
 	void LayerStack::PushOverlay(Layer* overlay)
 	{
 		m_Layers.emplace_back(overlay);
+		overlay->OnAttach();
 	}
 
 	void LayerStack::PopLayer(Layer* layer)

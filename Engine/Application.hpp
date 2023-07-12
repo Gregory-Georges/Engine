@@ -30,10 +30,15 @@ namespace Engine
             void PushLayer(Layer* layer);
             void PushOverlay(Layer* overlay);
 
+            static Application* GetInstance();
+
+            Window& GetMainWindow();
+
             bool m_isRunning;
 
         private:
 
+            static Application* s_instance;
             Window* m_main_window;
             LayerStack m_layer_stack;
     };

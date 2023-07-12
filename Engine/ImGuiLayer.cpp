@@ -13,7 +13,7 @@ namespace Engine
 
     void ImGuiLayer::OnAttach()
     {
-
+        std::cout << "Hello\n";
     }
 
     void ImGuiLayer::OnDetach()
