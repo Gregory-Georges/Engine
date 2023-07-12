@@ -18,7 +18,8 @@ Currently, the premake file is written as to support a linux environement. To su
 Also, somme files are platform dependant and their contents must be <b>changed</b> :
 
 - Everything in the Engine/Platform folder is platform dependant and must be changed according to the environment.
-- The platform flag has to bee changed inn the platform.h file
+- The platform flag has to bee changed in the platform.h file
+- The imguilayer file is dependant on the window interface used by platform.
 
 <b>Supported environments (premake files)</b>:
-- Linux, glfw3 for window processing and glad for opengl access
+- Linux, glfw3 for window processing and glad for opengl interpretation
