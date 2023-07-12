@@ -188,3 +188,13 @@ void Engine::LinuxWindow::Shutdown()
 {
     glfwTerminate();
 }
+
+
+
+
+
+
+Engine::Window* Engine::CreateWindow()
+{
+    return new LinuxWindow(WindowProps());
+}

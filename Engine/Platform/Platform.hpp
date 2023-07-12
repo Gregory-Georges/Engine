@@ -11,6 +11,7 @@
 //Macro used to make shared libraries
 #ifdef PLATFORM_LINUX
     #define dynamic __attribute__((visibility("default")))
+    #include "LinuxWindow.hpp"
 #endif
 
 #ifdef PLATFORM_WINDOWS

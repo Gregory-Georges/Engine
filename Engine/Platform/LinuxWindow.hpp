@@ -53,6 +53,10 @@ namespace Engine
         WindowData m_data;
         static int window_count;
     };
+
+
+
+    Window* CreateWindow();
 }
 
 

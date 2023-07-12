@@ -14,7 +14,6 @@
 //*********************************************************
 #include "Layer.hpp"
 #include "LayerStack.hpp"
-#include "ImGuiLayer.hpp"
 //*********************************************************
 
 //Platform specific

@@ -18,10 +18,6 @@ int main()
     //Create application
     auto* app = Engine::CreateApplication();
 
-    //Push ImGui overlay
-    Engine::ImGuiLayer* igl = new Engine::ImGuiLayer();
-    app->PushOverlay(igl);
-
     //Program loop
     while(app->m_isRunning)
         app->Run();

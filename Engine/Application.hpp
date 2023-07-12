@@ -1,13 +1,14 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
-//#include "glad/glad.h"
+#include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
 #include "Log.hpp"
 #include "Events/EventManager.hpp"
 #include "Platform/Platform.hpp"
 #include "LayerStack.hpp"
+#include "ImGuiLayer.hpp"
 
 
 
@@ -22,7 +23,7 @@ namespace Engine
         public:
 
             dynamic Application();
-            dynamic virtual ~Application() = default;
+            dynamic virtual ~Application() { delete m_main_window; }
 
             dynamic void Run();
 
@@ -33,8 +34,16 @@ namespace Engine
 
         private:
 
+            Window* m_main_window;
             LayerStack m_layer_stack;
     };
+
+
+
+    //
+    //To be defined in window subclass
+    //
+    Window* CreateWindow();
 
     //
     //To be defined in client

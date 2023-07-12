@@ -8,15 +8,13 @@ public:
 
     Sandbox()
     {
-        m_window = new Engine::LinuxWindow(Engine::WindowProps());
+
     }
 
     ~Sandbox()
     {
-        delete m_window;
-    }
 
-    Engine::Window* m_window;
+    }
 };
 
 Engine::Application* Engine::CreateApplication()
