@@ -24,7 +24,8 @@ namespace Engine
 
         //Push ImGui overlay
         #ifdef ENGINE_DEBUG
-        PushOverlay(new Engine::ImGuiLayer());
+        m_ImGuiLayer = new Engine::ImGuiLayer();
+        PushOverlay(m_ImGuiLayer);
         #endif // ENGINE_DEBUG
     }
 
@@ -34,6 +35,10 @@ namespace Engine
     {
         glfwPollEvents();
         POLL_EVENTS();
+
+        //Temporary - Need for cleanup
+        m_ImGuiLayer->OnRender();
+        glfwSwapBuffers((GLFWwindow*)(m_main_window->GetNativeWindow()));
     }
 
 

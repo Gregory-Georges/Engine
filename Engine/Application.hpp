@@ -41,6 +41,10 @@ namespace Engine
             static Application* s_instance;
             Window* m_main_window;
             LayerStack m_layer_stack;
+
+            #ifdef ENGINE_DEBUG
+            ImGuiLayer* m_ImGuiLayer;
+            #endif // ENGINE_DEBUG
     };
 
 

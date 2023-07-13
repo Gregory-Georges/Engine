@@ -43,4 +43,7 @@ bin-int/
 *.cbp
 
 #Valgring performance tests
-*/ValgrindOut.xml
+**/ValgrindOut.xml
+
+#ImGui file
+**/imgui.ini

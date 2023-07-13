@@ -41,6 +41,7 @@ namespace Engine
 
         virtual void SetVSync(bool enabled) = 0;
         virtual bool IsVSync() = 0;
+        virtual void* GetNativeWindow() = 0;
 
         static Window* Create(const WindowProps& properties = WindowProps());
     };

@@ -32,7 +32,7 @@ namespace Engine
         bool IsVSync() override;
 
         //More stuff
-        void* GetNativeWindow();
+        void* GetNativeWindow() override;
 
 
 

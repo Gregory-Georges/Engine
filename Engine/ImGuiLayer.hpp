@@ -3,10 +3,14 @@
 
 #include "Layer.hpp"
 
+#include "glad/glad.h"
+#include <GLFW/glfw3.h>
+
 #include "imgui.h"
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_opengl3_loader.h"
 #include "backends/imgui_impl_glfw.h"
+
 
 
 
@@ -16,7 +20,7 @@ namespace Engine
     {
     public:
 
-        ImGuiLayer();
+        ImGuiLayer() = default;
         ~ImGuiLayer() = default;
 
         void OnAttach() override;
