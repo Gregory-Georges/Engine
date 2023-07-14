@@ -33,6 +33,10 @@ namespace Engine
 
     void Application::Run()
     {
+        //Clear display
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        //Event handling
         glfwPollEvents();
         POLL_EVENTS();
 
