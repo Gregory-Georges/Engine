@@ -61,6 +61,12 @@ project "Engine"
             "Dependencies/glad/glad",
             "Dependencies/imgui/imgui"
         }
+        
+        dependson
+        {
+            "glad",
+            "imgui"
+        }
 
 
         filter "Configurations:Debug"
@@ -125,6 +131,11 @@ project "Test"
             "Engine",
             "Dependencies/glad/glad",
             "Dependencies/imgui/imgui"
+        }
+        
+        dependson
+        {
+            "Engine"
         }
 
 
