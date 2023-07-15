@@ -62,7 +62,6 @@ namespace Engine
 
 
     Application* Application::GetInstance()
-
     {
         return s_instance;
     }

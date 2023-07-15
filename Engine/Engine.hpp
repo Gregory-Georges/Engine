@@ -19,10 +19,6 @@
 //Platform specific
 //*********************************************************
 #include "Platform/Platform.hpp"
-
-#ifdef PLATFORM_LINUX
-#include "Platform/LinuxWindow.hpp"
-#endif
 //*********************************************************
 
 //defines debug mode macros
