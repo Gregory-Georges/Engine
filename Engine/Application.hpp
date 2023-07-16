@@ -1,15 +1,13 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
-#include "glad/glad.h"
-#include <GLFW/glfw3.h>
+#include "GL/GLHeaders.hpp"
 
 #include "Log.hpp"
-#include "Events/EventManager.hpp"
-#include "Platform/Platform.hpp"
 #include "LayerStack.hpp"
 #include "ImGuiLayer.hpp"
-#include "Input.hpp"
+
+#include "Platform/Platform.hpp"
 
 
 
@@ -23,10 +21,10 @@ namespace Engine
     {
         public:
 
-            dynamic Application();
-            dynamic virtual ~Application() { delete m_main_window; }
+            Application();
+            virtual ~Application() { delete m_main_window; }
 
-            dynamic void Run();
+            void Run();
 
             void PushLayer(Layer* layer);
             void PushOverlay(Layer* overlay);

@@ -2,10 +2,6 @@
 #define LOG_HPP
 
 #include <spdlog/spdlog.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-
-#include "Platform/Platform.hpp"
-#include "Debug.hpp"
 
 
 namespace Engine
