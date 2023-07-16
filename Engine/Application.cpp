@@ -35,6 +35,7 @@ namespace Engine
     {
         //Clear display
         glClear(GL_COLOR_BUFFER_BIT);
+        ENGINE_CORE_INFO(Input::GetKey(GLFW_KEY_A));
 
         //Event handling
         glfwPollEvents();

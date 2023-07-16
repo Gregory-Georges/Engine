@@ -37,6 +37,7 @@
 #include "Application.hpp"
 #include "Log.hpp"
 #include "Window.hpp"
+#include "Input.hpp"
 //*********************************************************
 
 //Entry point
