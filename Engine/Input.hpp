@@ -13,7 +13,7 @@ namespace Engine
         virtual ~Input() {}
 
         //Get dsts from instance
-        std::pair<float, float> GetMousePos(){ return s_instance.GetMousePosImpl(); }
+        std::pair<float, float> GetMousePos(){ return s_instance->GetMousePosImpl(); }
         bool GetKey(int keycode){ return s_instance->GetKeyImpl(keycode); }
         bool GetMouseButton(int mousecode){ return s_instance->GetMouseButtonImpl(MouseCode); }
 
