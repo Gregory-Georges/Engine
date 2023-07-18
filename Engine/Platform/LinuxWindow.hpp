@@ -1,15 +1,11 @@
 #ifndef LINUXWINDOW_HPP
 #define LINUXWINDOW_HPP
 
-#include "glad/glad.h"
-#include <GLFW/glfw3.h>
-
-#include "../Events/EventManager.hpp"
-#include "../Events/ApplicationEvent.hpp"
-#include "../Events/KeyEvent.hpp"
-#include "../Events/MouseEvent.hpp"
 #include "../Window.hpp"
-#include "../Log.hpp"
+
+
+
+class GLFWwindow;
 
 
 

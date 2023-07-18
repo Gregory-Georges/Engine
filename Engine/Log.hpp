@@ -1,7 +1,9 @@
 #ifndef LOG_HPP
 #define LOG_HPP
 
+#include <memory>
 #include <spdlog/spdlog.h>
+
 
 
 namespace Engine

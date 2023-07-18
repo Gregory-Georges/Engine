@@ -31,7 +31,8 @@ project "Engine"
     	includedirs
     	{
     	    "Dependencies/glad/include",
-    	    "Dependencies/imgui"
+    	    "Dependencies/imgui",
+    	    "Dependencies/glm"
     	}
     	
     	postbuildcommands
@@ -101,13 +102,6 @@ project "Test"
             "%{prj.name}/**.hpp",
             "%{prj.name}/**.c",
             "%{prj.name}/**.h"
-        }
-        
-        includedirs
-        {
-            "include",
-            "Dependencies/glad/include",
-            "Dependencies/imgui"
         }
     	
     	files

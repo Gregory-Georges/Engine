@@ -1,11 +1,8 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
-#include "GL/GLHeaders.hpp"
-
 #include "Log.hpp"
 #include "LayerStack.hpp"
-#include "ImGuiLayer.hpp"
 
 #include "Platform/Platform.hpp"
 
@@ -42,7 +39,7 @@ namespace Engine
             LayerStack m_layer_stack;
 
             #ifdef ENGINE_DEBUG
-            ImGuiLayer* m_ImGuiLayer;
+            Layer* m_ImGuiLayer;
             #endif // ENGINE_DEBUG
     };
 

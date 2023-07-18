@@ -1,7 +1,10 @@
 #include "pch.hpp"
 #include "Application.hpp"
 
+#include "ImGuiLayer.hpp"
+
 #include "Input.hpp"
+#include "Events/EventManager.hpp"
 
 
 

@@ -1,6 +1,14 @@
 #include "../pch.hpp"
 #include "LinuxWindow.hpp"
 
+#include "../GL/GLHeaders.hpp"
+
+#include "../Events/EventManager.hpp"
+#include "../Events/ApplicationEvent.hpp"
+#include "../Events/KeyEvent.hpp"
+#include "../Events/MouseEvent.hpp"
+#include "../Log.hpp"
+
 
 
 int Engine::LinuxWindow::window_count = 0;

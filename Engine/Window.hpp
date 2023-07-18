@@ -1,7 +1,7 @@
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 
-#include "Platform/Platform.hpp"
+//#include "Platform/Platform.hpp"
 #include "Events/Event.hpp"
 
 #include <functional>

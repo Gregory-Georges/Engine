@@ -1,6 +1,8 @@
 #include "pch.hpp"
 #include "Log.hpp"
 
+
+
 namespace Engine
 {
     std::shared_ptr<spdlog::logger> Log::mCore_logger;
