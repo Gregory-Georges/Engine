@@ -19,7 +19,6 @@ namespace Engine
         void OnDetach() override;
         void OnUpdate() override;
         void OnRender() override;
-        void OnEvent(Event& event) override;
     };
 }
 
