@@ -2,6 +2,7 @@
 #define LAYERSTACK_HPP
 
 #include "Layer.hpp"
+#include "Events/Event.hpp"
 
 #include <vector>
 

@@ -45,8 +45,9 @@ namespace Engine
         glfwPollEvents();
         POLL_EVENTS();
 
-        //Temporary - Need for cleanup
-        m_ImGuiLayer->OnRender();
+        for(Layer* layer : m_layer_stack)
+            layer->OnRender();
+
         glfwSwapBuffers((GLFWwindow*)(m_main_window->GetNativeWindow()));
     }
 

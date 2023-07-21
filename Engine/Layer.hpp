@@ -18,6 +18,8 @@ namespace Engine
 		virtual void OnUpdate() {}
 		virtual void OnRender() {}
 		virtual void OnEvent(Event& event) {}
+
+		virtual void OnImGuiRender() {}
 	};
 }
 
