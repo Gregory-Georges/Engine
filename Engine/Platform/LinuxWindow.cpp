@@ -3,7 +3,6 @@
 
 #include "../GL/GLHeaders.hpp"
 
-#include "../Events/EventManager.hpp"
 #include "../Events/ApplicationEvent.hpp"
 #include "../Events/KeyEvent.hpp"
 #include "../Events/MouseEvent.hpp"
@@ -109,13 +108,13 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
         Data.Height = height;
         glViewport(0, 0, width, height);
 
-        SEND_EVENT(WindowResizeEvent, width, height);
+        ENGINE_SEND_EVENT(WindowResizeEvent, width, height);
         ENGINE_INFO("Window size callback occurred");
     });
 
     glfwSetWindowPosCallback(m_Window, [](GLFWwindow* window, int new_x, int new_y)
     {
-        SEND_EVENT(WindowMovedEvent, new_x, new_y);
+        ENGINE_SEND_EVENT(WindowMovedEvent, new_x, new_y);
         ENGINE_CORE_INFO("Window position callback occurred");
     });
 
@@ -123,7 +122,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     {
         WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-        SEND_EVENT(WindowCloseEvent);
+        ENGINE_SEND_EVENT(WindowCloseEvent);
         ENGINE_INFO("Window close callback occurred");
     });
 
@@ -135,19 +134,19 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
         {
             case GLFW_PRESS:
             {
-                SEND_EVENT(KeyPressedEvent, scancode, false);
+                ENGINE_SEND_EVENT(KeyPressedEvent, scancode, false);
                 ENGINE_INFO("Window key press callback occurred");
                 break;
             }
             case GLFW_RELEASE:
             {
-                SEND_EVENT(KeyReleasedEvent, scancode);
+                ENGINE_SEND_EVENT(KeyReleasedEvent, scancode);
                 ENGINE_INFO("Window key released callback occurred");
                 break;
             }
             case GLFW_REPEAT:
             {
-                SEND_EVENT(KeyPressedEvent, scancode, true);
+                ENGINE_SEND_EVENT(KeyPressedEvent, scancode, true);
                 ENGINE_INFO("Window key repeat callback occurred");
                 break;
             }
@@ -157,7 +156,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
     {
         ENGINE_INFO("Window key typed callback occurred");
-        SEND_EVENT(KeyTypedEvent, keycode);
+        ENGINE_SEND_EVENT(KeyTypedEvent, keycode);
     });
 
     glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
@@ -166,13 +165,13 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
         {
             case GLFW_PRESS:
             {
-                SEND_EVENT(MouseButtonPressedEvent, button);
+                ENGINE_SEND_EVENT(MouseButtonPressedEvent, button);
                 ENGINE_INFO("Window mouse button pressed callback occurred");
                 break;
             }
             case GLFW_RELEASE:
             {
-                SEND_EVENT(MouseButtonReleasedEvent, button);
+                ENGINE_SEND_EVENT(MouseButtonReleasedEvent, button);
                 ENGINE_INFO("Window mouse button release callback occurred");
                 break;
             }
@@ -182,13 +181,13 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
     {
         ENGINE_INFO("Window scroll callback occurred");
-        SEND_EVENT(MouseScrolledEvent, xOffset, yOffset);
+        ENGINE_SEND_EVENT(MouseScrolledEvent, xOffset, yOffset);
     });
 
     glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
     {
         ENGINE_INFO("Window cuursor pos callback occurred");
-        SEND_EVENT(MouseMovedEvent, xPos, yPos);
+        ENGINE_SEND_EVENT(MouseMovedEvent, xPos, yPos);
     });
 }
 

@@ -38,4 +38,9 @@ namespace Engine
 
 
 
+#define ENGINE_POLL_EVENTS()
+#define ENGINE_SEND_EVENT(Event, contructor_data...)
+
+
+
 #endif // EVENT_HPP_INCLUDED

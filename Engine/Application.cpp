@@ -4,7 +4,6 @@
 #include "ImGuiLayer.hpp"
 
 #include "Input.hpp"
-#include "Events/EventManager.hpp"
 
 
 
@@ -43,7 +42,7 @@ namespace Engine
 
         //Event handling
         glfwPollEvents();
-        POLL_EVENTS();
+        ENGINE_POLL_EVENTS();
         for(auto rit = m_layer_stack.rbegin(); rit != m_layer_stack.rend(); ++rit)
             ;//*rit->OnEvent();
 
