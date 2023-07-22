@@ -24,21 +24,6 @@ namespace Engine
         ImGui::StyleColorsDark();
     }
 
-    void ImGuiLayer::OnDetach()
-    {
-
-    }
-
-    void ImGuiLayer::OnUpdate()
-    {
-
-    }
-
-    void ImGuiLayer::OnRender()
-    {
-
-    }
-
     void ImGuiLayer::OnImGuiRender()
     {
         // feed inputs to dear imgui, start new frame
