@@ -42,7 +42,7 @@ namespace Engine
 
         //Event handling
         glfwPollEvents();
-        ENGINE_POLL_EVENTS();
+
         for(auto rit = m_layer_stack.rbegin(); rit != m_layer_stack.rend(); ++rit)
             ;//*rit->OnEvent();
 
