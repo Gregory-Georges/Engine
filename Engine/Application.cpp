@@ -44,11 +44,21 @@ namespace Engine
         //Event handling
         glfwPollEvents();
         POLL_EVENTS();
+        for(auto rit = m_layer_stack.rbegin(); rit != m_layer_stack.rend(); ++rit)
+            ;//*rit->OnEvent();
 
+        //Draw layers
         for(Layer* layer : m_layer_stack)
             layer->OnRender();
 
-        glfwSwapBuffers((GLFWwindow*)(m_main_window->GetNativeWindow()));
+        //Draw ImGui
+        #ifdef ENGINE_DEBUG
+        for(Layer* layer : m_layer_stack)
+            layer->OnImGuiRender();
+        #endif // ENGINE_DEBUG
+
+        //Update window
+        m_main_window->OnUpdate();
     }
 
 

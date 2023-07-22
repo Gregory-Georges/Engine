@@ -29,7 +29,6 @@ namespace Engine
             static Application* GetInstance();
 
             Window& GetMainWindow();
-
             bool m_isRunning;
 
         private:

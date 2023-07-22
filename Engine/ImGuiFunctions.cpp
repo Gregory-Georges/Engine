@@ -1,8 +1,8 @@
 #include "pch.hpp"
-#include "ImGuiLayer.hpp"
-
+#include "ImGuiFunctions.hpp"
 #include "Application.hpp"
 
+#include "GL/GLHeaders.hpp"
 #include "imgui.h"
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"
@@ -11,7 +11,16 @@
 
 namespace Engine
 {
-    void ImGuiLayer::OnAttach()
+    //Singleton get
+    ImGuiFunctions& ImGuiFunctions::Get()
+    {
+        static ImGuiFunctions imgui_f;
+        return imgui_f;
+    }
+
+
+
+    void ImGuiFunctions::ImGuiInit()
     {
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
@@ -24,35 +33,20 @@ namespace Engine
         ImGui::StyleColorsDark();
     }
 
-    void ImGuiLayer::OnDetach()
+    void ImGuiFunctions::ImGuiTerminate()
     {
 
     }
 
-    void ImGuiLayer::OnUpdate()
-    {
 
+
+    void ImGuiFunctions::ImGuiBegin(std::string window_name)
+    {
+        ImGui::Begin(window_name.c_str());
     }
 
-    void ImGuiLayer::OnRender()
+    void ImGuiFunctions::ImGuiEnd()
     {
-
-    }
-
-    void ImGuiLayer::OnImGuiRender()
-    {
-        // feed inputs to dear imgui, start new frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        //Tell what to render
-        ImGui::Begin("Demo window");
-        ImGui::Button("Hello!");
         ImGui::End();
-
-        //Render ImGui
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }
 }
