@@ -2,6 +2,7 @@
 #include "LinuxWindow.hpp"
 
 #include "../GL/GLHeaders.hpp"
+#include "../Application.hpp"
 
 #include "../Events/ApplicationEvent.hpp"
 #include "../Events/KeyEvent.hpp"
@@ -155,8 +156,8 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
     glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
     {
-        ENGINE_INFO("Window key typed callback occurred");
         ENGINE_SEND_EVENT(KeyTypedEvent, keycode);
+        ENGINE_INFO("Window key typed callback occurred");
     });
 
     glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
@@ -186,7 +187,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
     glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
     {
-        ENGINE_INFO("Window cuursor pos callback occurred");
+        ENGINE_INFO("Window cursor pos callback occurred");
         ENGINE_SEND_EVENT(MouseMovedEvent, xPos, yPos);
     });
 }

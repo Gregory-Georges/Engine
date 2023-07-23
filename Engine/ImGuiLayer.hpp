@@ -17,6 +17,7 @@ namespace Engine
 
         void OnAttach() override;
         void OnImGuiRender() override;
+        void OnEvent(Event* event) override;
     };
 }
 

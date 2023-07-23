@@ -47,10 +47,7 @@ namespace Engine
     {
     public:
 
-        EventDispatcher(Event& event) : m_Event(event)
-        {
-
-        }
+        EventDispatcher(Event& event) : m_Event(event) {}
 
         // F will be deduced by the compiler
         template<typename T, typename F>
@@ -71,8 +68,7 @@ namespace Engine
 
 
 
-#define ENGINE_POLL_EVENTS()
-#define ENGINE_SEND_EVENT(Event, contructor_data...)
+#define ENGINE_SEND_EVENT(EventType, ...) Application::GetInstance()->SendEvent(new EventType(__VA_ARGS__))
 
 
 

@@ -1,6 +1,8 @@
 #include "pch.hpp"
 #include "ImGuiLayer.hpp"
 
+#include <iostream>
+
 #include "Application.hpp"
 
 #include "imgui.h"
@@ -39,5 +41,10 @@ namespace Engine
         //Render ImGui
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    }
+
+    void ImGuiLayer::OnEvent(Event* event)
+    {
+
     }
 }

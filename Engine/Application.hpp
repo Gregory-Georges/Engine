@@ -1,6 +1,9 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+#include <memory>
+#include <queue>
+
 #include "Log.hpp"
 #include "LayerStack.hpp"
 
@@ -31,6 +34,8 @@ namespace Engine
             Window& GetMainWindow();
             bool m_isRunning;
 
+            void SendEvent(Event* event);
+
         private:
 
             static Application* s_instance;
@@ -40,6 +45,9 @@ namespace Engine
             #ifdef ENGINE_DEBUG
             Layer* m_ImGuiLayer;
             #endif // ENGINE_DEBUG
+
+            std::queue<Event*> m_EventQueue;
+            void PollEvents();
     };
 
 

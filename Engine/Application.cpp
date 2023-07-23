@@ -42,9 +42,7 @@ namespace Engine
 
         //Event handling
         glfwPollEvents();
-
-        for(auto rit = m_layer_stack.rbegin(); rit != m_layer_stack.rend(); ++rit)
-            ;//*rit->OnEvent();
+        PollEvents();
 
         //Draw layers
         for(Layer* layer : m_layer_stack)
@@ -84,5 +82,32 @@ namespace Engine
     Window& Application::GetMainWindow()
     {
         return *m_main_window;
+    }
+
+
+
+    void Application::SendEvent(Event* event)
+    {
+        m_EventQueue.push(event);
+    }
+
+
+
+    void Application::PollEvents()
+    {
+        int queue_count = m_EventQueue.size();
+
+        for(int i = 0; i < queue_count; ++i)
+        {
+            for(auto it = m_layer_stack.rbegin(); it < m_layer_stack.rend(); ++it)
+            {
+                if(m_EventQueue.front()->m_handled)
+                    break;
+                (*it)->OnEvent(m_EventQueue.front());
+            }
+
+            delete m_EventQueue.front();
+            m_EventQueue.pop();
+        }
     }
 }
