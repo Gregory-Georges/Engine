@@ -1,8 +1,9 @@
 #include "pch.hpp"
 #include "Application.hpp"
 
-#include "ImGuiLayer.hpp"
+#include "GL/GLHeaders.hpp"
 
+#include "ImGuiLayer.hpp"
 #include "Input.hpp"
 
 

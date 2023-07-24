@@ -5,8 +5,7 @@
 
 //Graphical headers
 //***************************************************
-#include "glad/glad.h"
-#include <GLFW/glfw3.h>
+#include "GL/GLHeaders.hpp"
 //***************************************************
 
 //Standard header files
@@ -29,6 +28,7 @@
 //***************************************************
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include "imgui.h"
 #include "glm/glm.hpp"
 //***************************************************
 

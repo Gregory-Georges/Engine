@@ -19,7 +19,7 @@ workspace "Engine"
 
 project "Engine"
     location "Engine"
-    kind "sharedlib"
+    kind "staticlib"
     language "C++"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -33,11 +33,6 @@ project "Engine"
     	    "Dependencies/glad/include",
     	    "Dependencies/imgui",
     	    "Dependencies/glm"
-    	}
-    	
-    	postbuildcommands
-    	{
-    	    "cp ../bin/" .. outputdir .. "/%{prj.name}/libEngine.so ../Test/"
     	}
 
         files
@@ -118,11 +113,13 @@ project "Test"
 
         links
         {
+            "bin/" .. outputdir .. "/Engine/Engine",
+            
+            --Links of engine
             "fmt",
             "spdlog",
             "glfw",
             "GL",
-            "Engine",
             "Dependencies/glad/glad",
             "Dependencies/imgui/imgui"
         }
