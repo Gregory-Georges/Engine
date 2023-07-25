@@ -19,8 +19,10 @@ workspace "Engine"
 
 project "Engine"
     location "Engine"
-    kind "staticlib"
+    kind "sharedlib"
     language "C++"
+    cppdialect "c++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -67,15 +69,18 @@ project "Engine"
 
         filter "Configurations:Debug"
             defines "ENGINE_DEBUG"
-            optimize "on"
+            symbols "on"
+            runtime "debug"
 
         filter "Configurations:Release"
             defines "ENGINE_RELEASE"
             optimize "on"
+            runtime "release"
 
         filter "Configurations:Dist"
             defines "ENGINE_DIST"
             optimize "on"
+            runtime "release"
 
 
 
@@ -87,6 +92,8 @@ project "Test"
     location "Test"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "c++17"
+    staticruntime "on"
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -120,8 +127,8 @@ project "Test"
             "spdlog",
             "glfw",
             "GL",
-            "Dependencies/glad/glad",
-            "Dependencies/imgui/imgui"
+            "Dependencies/imgui/imgui",
+            "Dependencies/glad/glad"
         }
         
         dependson
@@ -132,7 +139,7 @@ project "Test"
 
         filter "Configurations:Debug"
             defines "ENGINE_DEBUG"
-            optimize "on"
+            symbols "on"
 
         filter "Configurations:Release"
             defines "ENGINE_RELEASE"
@@ -152,6 +159,8 @@ project "glad"
     location "Dependencies/glad"
     kind "sharedlib"
     language "C++"
+    cppdialect "c++17"
+    staticruntime "on"
 
     targetdir ("Dependencies/glad/")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -168,7 +177,7 @@ project "glad"
         
 
         filter "Configurations:Debug"
-            optimize "on"
+            symbols "on"
 
         filter "Configurations:Release"
             optimize "on"
@@ -186,6 +195,7 @@ project "imgui"
     location "Dependencies/imgui"
     kind "sharedlib"
     language "C++"
+    cppdialect "c++17"
 
     targetdir ("Dependencies/imgui/")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
