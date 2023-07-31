@@ -91,7 +91,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
     //Init glad
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-        ENGINE_CORE_ERROR("Could not to initialize GLAD");
+        ENGINE_CORE_ERROR("Could not initialize GLAD");
 
     //Other parameters
     glViewport(0, 0, wp.width, wp.height);

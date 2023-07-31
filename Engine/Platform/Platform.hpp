@@ -10,12 +10,15 @@
 
 //Macro used to make shared libraries
 #ifdef PLATFORM_LINUX
-    #define dynamic __attribute__((visibility("default")))
+    #define ENGINE_EXPORT __attribute__((visibility("default")))
+    #define ENGINE_IMPORT
     #include "LinuxWindow.hpp"
 #endif
 
 #ifdef PLATFORM_WINDOWS
-    #define dynamic __declspec(dllexport)
+    #define ENGINE_EXPORT __declspec(dllexport)
+    #define ENGINE_IMPORT __declspec(dllimport)
+    //#include "WindowsWindow.hpp"      //Does not exist yet
 #endif
 
 

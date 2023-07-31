@@ -60,7 +60,7 @@ namespace Engine
     //
     //To be defined in client
     //
-    dynamic Application* CreateApplication();
+    Application* CreateApplication();
 }
 
 #endif // APPLICATION_HPP
