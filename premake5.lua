@@ -109,7 +109,14 @@ project "Test"
 
         links
         {
-            "Engine/Engine"
+            "Engine/Engine",
+            
+            --Dependencies from engine
+            "Dependencies/fmt/fmt",
+            "Dependencies/glad/Glad",
+            "Dependencies/glfw/src/glfw3",
+            "Dependencies/imgui/imgui",
+            "Dependencies/spdlog/spdlog"
         }
         
         dependson
