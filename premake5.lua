@@ -111,7 +111,7 @@ project "Test"
         {
             "Engine/Engine",
             
-            --Dependencies from engine
+            -- Links from Engine
             "Dependencies/fmt/fmt",
             "Dependencies/glad/Glad",
             "Dependencies/glfw/src/glfw3",

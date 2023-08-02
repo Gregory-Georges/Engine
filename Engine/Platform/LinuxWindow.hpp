@@ -2,6 +2,7 @@
 #define LINUXWINDOW_HPP
 
 #include "../Window.hpp"
+#include "../GraphicsContext.hpp"
 
 
 
@@ -46,6 +47,7 @@ namespace Engine
         };
 
         GLFWwindow* m_Window;
+        std::unique_ptr<GraphicsContext> m_context;
         WindowData m_data;
         static int window_count;
     };

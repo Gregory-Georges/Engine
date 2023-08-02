@@ -35,7 +35,7 @@ Engine::LinuxWindow::~LinuxWindow()
 void Engine::LinuxWindow::OnUpdate()
 {
     glfwPollEvents();
-    glfwSwapBuffers(m_Window);
+    m_context->SwapBuffers();
 }
 
 
@@ -87,7 +87,9 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     if(m_Window == nullptr)
         ENGINE_CORE_ERROR("Could not create linux window");
     glfwSetWindowUserPointer(m_Window, &m_data);
-    glfwMakeContextCurrent(m_Window);
+
+    m_context = GraphicsContext::CreateContext();
+    m_context->Init(m_Window);
 
     //Init glad
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
