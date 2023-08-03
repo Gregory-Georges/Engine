@@ -34,7 +34,6 @@ Engine::LinuxWindow::~LinuxWindow()
 
 void Engine::LinuxWindow::OnUpdate()
 {
-    glfwPollEvents();
     m_context->SwapBuffers();
 }
 

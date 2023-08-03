@@ -42,7 +42,6 @@ namespace Engine
         glClear(GL_COLOR_BUFFER_BIT);
 
         //Event handling
-        glfwPollEvents();
         PollEvents();
 
         //Draw layers
@@ -96,6 +95,8 @@ namespace Engine
 
     void Application::PollEvents()
     {
+        glfwPollEvents();
+
         int queue_count = m_EventQueue.size();
 
         for(int i = 0; i < queue_count; ++i)
