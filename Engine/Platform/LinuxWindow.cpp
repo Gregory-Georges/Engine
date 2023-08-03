@@ -90,10 +90,6 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     m_context = GraphicsContext::CreateContext();
     m_context->Init(m_Window);
 
-    //Init glad
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-        ENGINE_CORE_ERROR("Could not initialize GLAD");
-
     //Other parameters
     glViewport(0, 0, wp.width, wp.height);
     SetVSync(true);
