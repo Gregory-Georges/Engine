@@ -1,8 +1,8 @@
 #ifndef LINUXWINDOW_HPP
 #define LINUXWINDOW_HPP
 
-#include "../Window.hpp"
-#include "../GraphicsContext.hpp"
+#include "Engine/Window.hpp"
+#include "Engine/Renderer/GraphicsContext.hpp"
 
 
 

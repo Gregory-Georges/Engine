@@ -1,10 +1,10 @@
-#include "pch.hpp"
-#include "Application.hpp"
+#include "Engine/pch.hpp"
+#include "Engine/Application.hpp"
 
-#include "GL/GLHeaders.hpp"
+#include "Engine/Platform/OpenGL/GLHeaders.hpp"
 
-#include "ImGuiLayer.hpp"
-#include "Input.hpp"
+#include "Engine/ImGuiLayer.hpp"
+#include "Engine/Input.hpp"
 
 
 

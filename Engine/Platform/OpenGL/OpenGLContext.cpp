@@ -1,6 +1,6 @@
-#include "../pch.hpp"
-#include "OpenGLContext.hpp"
-#include "../Log.hpp"
+#include "Engine/pch.hpp"
+#include "Engine/Platform/OpenGL/OpenGLContext.hpp"
+#include "Engine/Log.hpp"
 
 
 

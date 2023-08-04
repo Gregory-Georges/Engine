@@ -1,7 +1,7 @@
 #ifndef OPENGLCONTEXT_HPP
 #define OPENGLCONTEXT_HPP
 
-#include "../GraphicsContext.hpp"
+#include "Engine/Renderer/GraphicsContext.hpp"
 
 
 namespace Engine

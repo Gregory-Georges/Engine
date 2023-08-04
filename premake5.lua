@@ -32,6 +32,7 @@ project "Engine"
     
     	includedirs
     	{
+    	    ".",
     	    "Dependencies/fmt/include",
     	    "Dependencies/glad/include",
     	    "Dependencies/glfw/include",
@@ -93,6 +94,11 @@ project "Test"
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+    
+        includedirs
+        {
+            "."
+        }
     
         files
         {

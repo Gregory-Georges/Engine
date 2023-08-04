@@ -1,8 +1,8 @@
-#include "pch.hpp"
-#include "ImGuiFunctions.hpp"
-#include "Application.hpp"
+#include "Engine/pch.hpp"
+#include "Engine/ImGuiFunctions.hpp"
+#include "Engine/Application.hpp"
 
-#include "GL/GLHeaders.hpp"
+#include "Engine/Platform/OpenGL/GLHeaders.hpp"
 #include "imgui.h"
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"

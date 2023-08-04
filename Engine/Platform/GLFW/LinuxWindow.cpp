@@ -1,13 +1,13 @@
-#include "../pch.hpp"
-#include "LinuxWindow.hpp"
+#include "Engine/pch.hpp"
+#include "Engine/Platform/GLFW/LinuxWindow.hpp"
 
-#include "../GL/GLHeaders.hpp"
-#include "../Application.hpp"
+#include "Engine/Platform/OpenGL/GLHeaders.hpp"
+#include "Engine/Application.hpp"
 
-#include "../Events/ApplicationEvent.hpp"
-#include "../Events/KeyEvent.hpp"
-#include "../Events/MouseEvent.hpp"
-#include "../Log.hpp"
+#include "Engine/Events/ApplicationEvent.hpp"
+#include "Engine/Events/KeyEvent.hpp"
+#include "Engine/Events/MouseEvent.hpp"
+#include "Engine/Log.hpp"
 
 
 
