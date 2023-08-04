@@ -48,6 +48,9 @@ namespace Engine
 
             std::queue<Event*> m_EventQueue;
             void PollEvents();
+
+            //Draw a triangle code
+            unsigned int VAO, VBO, IBO;
     };
 
 
