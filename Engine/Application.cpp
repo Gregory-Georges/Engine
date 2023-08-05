@@ -31,8 +31,6 @@ namespace Engine
 
         //Init a triangle
         glGenVertexArrays(1, &VAO);
-        glGenBuffers(1, &IBO);
-        glGenBuffers(1, &VBO);
 
         //Fill buffers wit data
         float vertices[] =
@@ -48,10 +46,10 @@ namespace Engine
         };
 
         glBindVertexArray(VAO);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+        VBO = VertexBuffer::Create(vertices, sizeof(vertices));
+        IBO = IndexBuffer::Create(indices, sizeof(indices));
+
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), NULL);
         glEnableVertexAttribArray(0);
         glBindVertexArray(0);

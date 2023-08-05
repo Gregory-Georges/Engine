@@ -7,6 +7,7 @@
 #include "Log.hpp"
 #include "LayerStack.hpp"
 #include "Engine/Renderer/Shader.hpp"
+#include "Engine/Renderer/Buffer.hpp"
 
 #include "Platform/Platform.hpp"
 
@@ -51,7 +52,9 @@ namespace Engine
             void PollEvents();
 
             //Draw a triangle code
-            unsigned int VAO, VBO, IBO;
+            std::unique_ptr<VertexBuffer> VBO;
+            std::unique_ptr<IndexBuffer> IBO;
+            unsigned int VAO;
             std::unique_ptr<Shader> shd;
     };
 
