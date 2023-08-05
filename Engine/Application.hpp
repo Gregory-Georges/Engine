@@ -6,6 +6,7 @@
 
 #include "Log.hpp"
 #include "LayerStack.hpp"
+#include "Engine/Renderer/Shader.hpp"
 
 #include "Platform/Platform.hpp"
 
@@ -51,6 +52,7 @@ namespace Engine
 
             //Draw a triangle code
             unsigned int VAO, VBO, IBO;
+            std::unique_ptr<Shader> shd;
     };
 
 

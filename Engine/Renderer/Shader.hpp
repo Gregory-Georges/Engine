@@ -11,18 +11,18 @@ namespace Engine
     {
     public:
 
-        virtual ~Shader() = default;
+        virtual ~Shader() {}
 
-        std::unique_ptr<Shader> CreateShader(const std::string& path);
-        std::unique_ptr<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
+        static std::unique_ptr<Shader> CreateShader(const std::string& path);
+        static std::unique_ptr<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
 
-        virtual void Use();
+        virtual void Use() = 0;
 
 
 
     protected:
 
-        Shader() = default;
+        Shader() {}
     };
 }
 

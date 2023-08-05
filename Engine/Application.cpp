@@ -56,6 +56,34 @@ namespace Engine
         glEnableVertexAttribArray(0);
         glBindVertexArray(0);
 
+        std::string vertex_shd = R"(
+            #version 410
+
+
+            layout (location = 0) in vec3 in_position;
+
+
+            void main()
+            {
+                gl_Position = vec4(in_position, 1.0);
+            }
+        )";
+
+        std::string fragment_shd = R"(
+            #version 410
+
+
+            out vec4 out_color;
+
+
+            void main()
+            {
+                out_color = vec4(1.0, 0.0, 0.0, 1.0);
+            }
+        )";
+
+        shd = Shader::CreateShader(vertex_shd, fragment_shd);
+
 
 
         //Push ImGui overlay
@@ -88,6 +116,7 @@ namespace Engine
 
 
         //Draw test triangle
+        shd->Use();
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, NULL);
         glBindVertexArray(0);

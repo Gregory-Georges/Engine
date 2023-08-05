@@ -1,3 +1,4 @@
+#include "Engine/pch.hpp"
 #include "OpenGLShader.hpp"
 
 #include "Engine/Log.hpp"
@@ -16,7 +17,6 @@ namespace Engine
     OpenGLShader::OpenGLShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src)
     {
         unsigned int vertex_shd, fragment_shd;
-
         m_shader_id = glCreateProgram();
 
         //Compile all and link
@@ -28,9 +28,9 @@ namespace Engine
         glValidateProgram(m_shader_id);
 
         //Check errors
-        int ok;
-        glGetProgramiv(m_shader_id, GL_VALIDATE_STATUS, &ok);
-        if(ok != GL_TRUE)
+        int success;
+        glGetProgramiv(m_shader_id, GL_VALIDATE_STATUS, &success);
+        if(success != GL_TRUE)
         {
             int log_lenght, written;
             glGetProgramiv(m_shader_id, GL_INFO_LOG_LENGTH, &log_lenght);
@@ -39,6 +39,8 @@ namespace Engine
             ENGINE_CORE_ERROR(log);
         }
 
+        glDeleteShader(vertex_shd);
+        glDeleteShader(fragment_shd);
     }
 
 
@@ -81,7 +83,12 @@ namespace Engine
         glGetShaderiv(shader_id, GL_COMPILE_STATUS, &result);
         if( GL_FALSE == result )
         {
-            ENGINE_CORE_ERROR("Shader source compilation failed!");
+            if(shader_type == GL_VERTEX_SHADER)
+                ENGINE_CORE_ERROR("Vertex shader source compilation failed!");
+            else if(shader_type == GL_FRAGMENT_SHADER)
+                ENGINE_CORE_ERROR("Fragment shader source compilation failed!");
+            else
+                ENGINE_CORE_ERROR("Shader source compilation failed!");
 
             // Get and show info log
             int log_lenght;
