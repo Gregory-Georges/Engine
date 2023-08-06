@@ -5,7 +5,7 @@
 
 //Graphical headers
 //***************************************************
-#include "GL/GLHeaders.hpp"
+#include "Engine/Platform/OpenGL/GLHeaders.hpp"
 //***************************************************
 
 //Standard header files
@@ -15,7 +15,7 @@
 #include <iostream>
 //***************************************************
 
-//STL containers
+//STL container headers
 //***************************************************
 #include <vector>
 #include <list>
@@ -26,8 +26,8 @@
 
 //Dependency headers
 //***************************************************
-#include <spdlog/spdlog.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 #include "imgui.h"
 #include "glm/glm.hpp"
 //***************************************************

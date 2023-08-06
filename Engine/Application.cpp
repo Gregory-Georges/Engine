@@ -35,9 +35,9 @@ namespace Engine
         //Fill buffers wit data
         float vertices[] =
         {
-            -0.5, -0.5,  0.0,
-             0.0,  0.5,  0.0,
-             0.5, -0.5,  0.0
+            -0.5f, -0.5f,  0.0f,
+             0.0f,  0.5f,  0.0f,
+             0.5f, -0.5f,  0.0f
         };
 
         unsigned int indices[] =
@@ -50,8 +50,16 @@ namespace Engine
         VBO = VertexBuffer::Create(vertices, sizeof(vertices));
         IBO = IndexBuffer::Create(indices, sizeof(indices));
 
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), NULL);
-        glEnableVertexAttribArray(0);
+
+
+        BufferLayout buffer_layout(
+        {
+            Layout(Type::VEC3_FLOAT, "in_position")
+        });
+        buffer_layout.ApplyLayout();
+
+
+
         glBindVertexArray(0);
 
         std::string vertex_shd = R"(
