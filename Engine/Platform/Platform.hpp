@@ -23,4 +23,35 @@
 
 
 
+
+
+namespace Engine
+{
+    enum class PlatformType
+    {
+        //Operating systems
+        WINDOWS,
+        LINUX,
+        MAC,
+
+        //Context libraries
+        GLFW,
+
+        //OpenGL interpreters
+        GLAD,
+        GLEW,
+
+        //Rendering APIs
+        OpenGL,
+        Metal,
+        DirectX,
+        Vulkan,
+    };
+}
+
+
+
+
+
+
 #endif // DYNAMIC_HPP_INCLUDED
