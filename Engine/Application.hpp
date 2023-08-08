@@ -8,6 +8,7 @@
 #include "LayerStack.hpp"
 #include "Engine/Renderer/Shader.hpp"
 #include "Engine/Renderer/Buffer.hpp"
+#include "Engine/Renderer/VertexArray.hpp"
 
 #include "Platform/Platform.hpp"
 
@@ -52,10 +53,10 @@ namespace Engine
             void PollEvents();
 
             //Draw a triangle code
-            std::unique_ptr<VertexBuffer> VBO;
-            std::unique_ptr<IndexBuffer> IBO;
-            unsigned int VAO;
-            std::unique_ptr<Shader> shd;
+            std::shared_ptr<VertexBuffer> VBO;
+            std::shared_ptr<IndexBuffer> IBO;
+            std::shared_ptr<VertexArray> VAO;
+            std::shared_ptr<Shader> SHD;
     };
 
 

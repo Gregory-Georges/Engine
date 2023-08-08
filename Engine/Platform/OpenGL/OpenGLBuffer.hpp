@@ -12,9 +12,11 @@ namespace Engine
     public:
         OpenGLVertexBuffer(void* data, int size);
         void Bind() override;
+        void SetLayout(const BufferLayout& buffer_layout) override;
 
     private:
         unsigned int m_buffer_id;
+        BufferLayout m_layout;
     };
 
 

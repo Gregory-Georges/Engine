@@ -15,6 +15,16 @@ namespace Engine
     void OpenGLVertexBuffer::Bind()
     {
         glBindBuffer(GL_ARRAY_BUFFER, m_buffer_id);
+        m_layout.ApplyLayout();
+    }
+
+
+
+    void OpenGLVertexBuffer::SetLayout(const BufferLayout& buffer_layout)
+    {
+        glBindBuffer(GL_ARRAY_BUFFER, m_buffer_id);
+        m_layout = buffer_layout;
+        m_layout.ApplyLayout();
     }
 
 
@@ -37,13 +47,13 @@ namespace Engine
 
 
 
-    std::unique_ptr<VertexBuffer> VertexBuffer::Create(void* data, int size)
+    std::shared_ptr<VertexBuffer> VertexBuffer::Create(void* data, int size)
     {
-        return std::make_unique<OpenGLVertexBuffer>(data, size);
+        return std::make_shared<OpenGLVertexBuffer>(data, size);
     }
 
-    std::unique_ptr<IndexBuffer> IndexBuffer::Create(unsigned int* data, int size)
+    std::shared_ptr<IndexBuffer> IndexBuffer::Create(unsigned int* data, int size)
     {
-        return std::make_unique<OpenGLIndexBuffer>(data, size);
+        return std::make_shared<OpenGLIndexBuffer>(data, size);
     }
 }

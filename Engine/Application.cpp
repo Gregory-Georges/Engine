@@ -30,7 +30,7 @@ namespace Engine
 
 
         //Init a triangle
-        glGenVertexArrays(1, &VAO);
+        VAO = VertexArray::Create();
 
         //Fill buffers wit data
         float vertices[] =
@@ -45,8 +45,6 @@ namespace Engine
             0, 1, 2
         };
 
-        glBindVertexArray(VAO);
-
         VBO = VertexBuffer::Create(vertices, sizeof(vertices));
         IBO = IndexBuffer::Create(indices, sizeof(indices));
 
@@ -56,7 +54,10 @@ namespace Engine
         {
             Layout(Type::VEC3_FLOAT, "in_position")
         });
-        buffer_layout.ApplyLayout();
+        VBO->SetLayout(buffer_layout);
+
+        VAO->AddVertexBuffer(VBO);
+        VAO->SetIndexBuffer(IBO);
 
 
 
@@ -88,7 +89,7 @@ namespace Engine
             }
         )";
 
-        shd = Shader::CreateShader(vertex_shd, fragment_shd);
+        SHD = Shader::CreateShader(vertex_shd, fragment_shd);
 
 
 
@@ -122,10 +123,10 @@ namespace Engine
 
 
         //Draw test triangle
-        shd->Use();
-        glBindVertexArray(VAO);
+        SHD->Use();
+        VAO->Bind();
         glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, NULL);
-        glBindVertexArray(0);
+        VAO->Unbind();
 
 
 

@@ -59,14 +59,14 @@ namespace Engine
 
 
 
-    std::unique_ptr<Shader> Shader::CreateShader(const std::string& path)
+    std::shared_ptr<Shader> Shader::CreateShader(const std::string& path)
     {
-        return std::make_unique<OpenGLShader>(path);
+        return std::make_shared<OpenGLShader>(path);
     }
 
-    std::unique_ptr<Shader> Shader::CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src)
+    std::shared_ptr<Shader> Shader::CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src)
     {
-        return std::make_unique<OpenGLShader>(vertex_shader_src, fragment_shader_src);
+        return std::make_shared<OpenGLShader>(vertex_shader_src, fragment_shader_src);
     }
 
 

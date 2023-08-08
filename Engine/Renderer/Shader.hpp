@@ -13,8 +13,8 @@ namespace Engine
 
         virtual ~Shader() {}
 
-        static std::unique_ptr<Shader> CreateShader(const std::string& path);
-        static std::unique_ptr<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
+        static std::shared_ptr<Shader> CreateShader(const std::string& path);
+        static std::shared_ptr<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
 
         virtual void Use() = 0;
 

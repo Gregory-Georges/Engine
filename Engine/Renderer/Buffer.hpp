@@ -42,6 +42,7 @@ namespace Engine
     public:
 
         BufferLayout(std::initializer_list<Layout> layouts);
+        BufferLayout();
         void ApplyLayout();
 
     private:
@@ -58,9 +59,10 @@ namespace Engine
     class VertexBuffer
     {
     public:
-        static std::unique_ptr<VertexBuffer> Create(void* data, int size);
+        static std::shared_ptr<VertexBuffer> Create(void* data, int size);
 
         virtual void Bind() = 0;
+        virtual void SetLayout(const BufferLayout& buffer_layout) = 0;
 
     protected:
         VertexBuffer() {}
@@ -71,7 +73,7 @@ namespace Engine
     class IndexBuffer
     {
     public:
-        static std::unique_ptr<IndexBuffer> Create(unsigned int* data, int size);
+        static std::shared_ptr<IndexBuffer> Create(unsigned int* data, int size);
 
         virtual void Bind() = 0;
 

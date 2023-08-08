@@ -82,10 +82,13 @@ namespace Engine
     BufferLayout::BufferLayout(std::initializer_list<Layout> layouts) :
             m_layouts(layouts), m_stride_size(0) { for(Layout& layout : m_layouts) m_stride_size += layout.m_size; }
 
+    BufferLayout::BufferLayout() :
+            m_stride_size(0) {}
+
     void BufferLayout::ApplyLayout()
     {
         int layout_size = m_layouts.size();
-        int offset = 0;
+        long offset = 0;
         for(unsigned int i = 0; i < layout_size; ++i)
         {
             Layout& lay = m_layouts[i];
