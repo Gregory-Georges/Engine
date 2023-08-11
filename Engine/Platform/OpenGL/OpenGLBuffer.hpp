@@ -26,10 +26,11 @@ namespace Engine
     public:
         OpenGLIndexBuffer(unsigned int* data, int size);
         void Bind() override;
+        inline int GetCount() override;
 
     private:
         unsigned int m_buffer_id;
-        unsigned int count;
+        unsigned int m_count;
     };
 }
 

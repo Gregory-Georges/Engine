@@ -34,6 +34,11 @@ namespace Engine
         m_index_buffer = buffer;
     }
 
+    int OpenGLVertexArray::GetCount()
+    {
+        return m_index_buffer->GetCount();
+    }
+
 
 
     std::shared_ptr<VertexArray> VertexArray::Create()

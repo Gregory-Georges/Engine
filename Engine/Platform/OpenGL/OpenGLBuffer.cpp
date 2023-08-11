@@ -31,7 +31,7 @@ namespace Engine
 
     OpenGLIndexBuffer::OpenGLIndexBuffer(unsigned int* data, int size)
     {
-        count = size / sizeof(unsigned int);
+        m_count = size / sizeof(unsigned int);
         glCreateBuffers(1, &m_buffer_id);
         Bind();
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
@@ -40,6 +40,13 @@ namespace Engine
     void OpenGLIndexBuffer::Bind()
     {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_buffer_id);
+    }
+
+
+
+    int OpenGLIndexBuffer::GetCount()
+    {
+        return m_count;
     }
 
 

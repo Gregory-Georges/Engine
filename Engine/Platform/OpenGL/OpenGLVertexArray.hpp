@@ -23,6 +23,8 @@ namespace Engine
         void AddVertexBuffer(std::shared_ptr<VertexBuffer> buffer) override;
         void SetIndexBuffer(std::shared_ptr<IndexBuffer> buffer) override;
 
+        inline int GetCount() override;
+
 
 
     private:

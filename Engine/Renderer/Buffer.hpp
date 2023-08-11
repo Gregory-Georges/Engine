@@ -74,6 +74,7 @@ namespace Engine
     {
     public:
         static std::shared_ptr<IndexBuffer> Create(unsigned int* data, int size);
+        virtual int GetCount() = 0;
 
         virtual void Bind() = 0;
 

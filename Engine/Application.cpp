@@ -6,6 +6,9 @@
 #include "Engine/ImGuiLayer.hpp"
 #include "Engine/Input.hpp"
 
+#include "Engine/Renderer/Renderer.hpp"
+#include "Engine/Renderer/RenderCommand.hpp"
+
 
 
 namespace Engine
@@ -104,9 +107,6 @@ namespace Engine
 
     void Application::Run()
     {
-        //Clear display
-        glClear(GL_COLOR_BUFFER_BIT);
-
         //Event handling
         PollEvents();
 
@@ -123,10 +123,13 @@ namespace Engine
 
 
         //Draw test triangle
+        RenderCommand::SetClearColor({0.2f, 0.2f, 1.0f, 1.0f});
+        RenderCommand::Clear();
+
+        Renderer::Begin();
         SHD->Use();
-        VAO->Bind();
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, NULL);
-        VAO->Unbind();
+        Renderer::Submit(VAO);
+        Renderer::End();
 
 
 
