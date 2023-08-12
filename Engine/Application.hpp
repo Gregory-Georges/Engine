@@ -9,6 +9,7 @@
 #include "Engine/Renderer/Shader.hpp"
 #include "Engine/Renderer/Buffer.hpp"
 #include "Engine/Renderer/VertexArray.hpp"
+#include "Engine/Renderer/OrthographicCamera.hpp"
 
 #include "Platform/Platform.hpp"
 
@@ -53,6 +54,7 @@ namespace Engine
             void PollEvents();
 
             //Draw a triangle code
+            OrthographicCamera m_OrthographicCamera;
             std::shared_ptr<VertexBuffer> VBO;
             std::shared_ptr<IndexBuffer> IBO;
             std::shared_ptr<VertexArray> VAO;

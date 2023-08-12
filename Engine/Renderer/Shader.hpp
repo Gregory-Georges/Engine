@@ -2,6 +2,7 @@
 #define SHADER_HPP_INCLUDED
 
 #include <string>
+#include "glm/glm.hpp"
 
 
 
@@ -17,6 +18,8 @@ namespace Engine
         static std::shared_ptr<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
 
         virtual void Use() = 0;
+
+        virtual void UploadUniformMat4(const glm::mat4& matrix, std::string name) = 0;
 
 
 

@@ -17,6 +17,7 @@ namespace Engine
             ~OpenGLShader();
 
             void Use() override;
+            void UploadUniformMat4(const glm::mat4& matrix, std::string name) override;
 
 
 

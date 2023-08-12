@@ -1,8 +1,6 @@
 #include "Engine/pch.hpp"
 #include "Engine/Application.hpp"
 
-#include "Engine/Platform/OpenGL/GLHeaders.hpp"
-
 #include "Engine/ImGuiLayer.hpp"
 #include "Engine/Input.hpp"
 
@@ -18,7 +16,7 @@ namespace Engine
 
 
     Application::Application() :
-        m_isRunning(true)
+        m_isRunning(true), m_OrthographicCamera(-1.0f, 1.0f, -1.0f, 1.0f)
     {
         //Initialize logging
         Engine::Log::Init();
@@ -72,10 +70,12 @@ namespace Engine
 
             layout (location = 0) in vec3 in_position;
 
+            uniform mat4 u_viewprojmat;
+
 
             void main()
             {
-                gl_Position = vec4(in_position, 1.0);
+                gl_Position = u_viewprojmat * vec4(in_position, 1.0);
             }
         )";
 
@@ -107,6 +107,10 @@ namespace Engine
 
     void Application::Run()
     {
+        m_OrthographicCamera.SetRotation(glm::radians(90.0f));
+        m_OrthographicCamera.SetPosition({0.5f, 0.5f, 0.0f});
+        m_OrthographicCamera.RecalculateViewMatrix();
+
         //Event handling
         PollEvents();
 
@@ -126,9 +130,8 @@ namespace Engine
         RenderCommand::SetClearColor({0.2f, 0.2f, 1.0f, 1.0f});
         RenderCommand::Clear();
 
-        Renderer::Begin();
-        SHD->Use();
-        Renderer::Submit(VAO);
+        Renderer::Begin(m_OrthographicCamera);
+        Renderer::Submit(SHD, VAO);
         Renderer::End();
 
 

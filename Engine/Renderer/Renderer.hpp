@@ -4,6 +4,9 @@
 #include "Engine/Renderer/RendererAPI.hpp"
 #include "Engine/Renderer/VertexArray.hpp"
 
+#include "Engine/Renderer/Shader.hpp"
+#include "Engine/Renderer/OrthographicCamera.hpp"
+
 
 
 namespace Engine
@@ -14,9 +17,19 @@ namespace Engine
         static RendererAPI::API GetAPI();
 
         static void Begin();
+        static void Begin(OrthographicCamera& camera);
         static void End();
 
-        static void Submit(const std::shared_ptr<VertexArray>& va);
+        static void Submit(const std::shared_ptr<Shader>& shd, const std::shared_ptr<VertexArray>& va);
+
+    private:
+
+        struct SceneData
+        {
+            glm::mat4 viewproj_mat;
+        };
+
+        static SceneData* m_SceneData;
     };
 }
 

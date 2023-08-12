@@ -1,6 +1,8 @@
 #include "Engine/pch.hpp"
 #include "OpenGLShader.hpp"
 
+#include "glm/gtc/type_ptr.hpp"
+
 #include "Engine/Log.hpp"
 #include "Engine/Platform/OpenGL/GLHeaders.hpp"
 
@@ -55,6 +57,14 @@ namespace Engine
     void OpenGLShader::Use()
     {
         glUseProgram(m_shader_id);
+    }
+
+
+
+    void OpenGLShader::UploadUniformMat4(const glm::mat4& matrix, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
 
