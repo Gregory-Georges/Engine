@@ -52,13 +52,6 @@ namespace Engine
 
             std::queue<Event*> m_EventQueue;
             void PollEvents();
-
-            //Draw a triangle code
-            OrthographicCamera m_OrthographicCamera;
-            std::shared_ptr<VertexBuffer> VBO;
-            std::shared_ptr<IndexBuffer> IBO;
-            std::shared_ptr<VertexArray> VAO;
-            std::shared_ptr<Shader> SHD;
     };
 
 

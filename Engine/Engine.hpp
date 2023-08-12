@@ -5,57 +5,64 @@
 
 //Layers
 //*********************************************************
-#include "Layer.hpp"
-#include "LayerStack.hpp"
+#include "Engine/Layer.hpp"
+#include "Engine/LayerStack.hpp"
 //*********************************************************
 
 
 
 //Platform specific
 //*********************************************************
-#include "Platform/Platform.hpp"
+#include "Engine/Platform/Platform.hpp"
 //*********************************************************
 
 
 
 //defines debug mode macros
 //*********************************************************
-#include "Debug.hpp"
-#include "Core.hpp"
+#include "Engine/Debug.hpp"
+#include "Engine/Core.hpp"
 //*********************************************************
 
 
 
 //Key codes
 //*********************************************************
-#include "KeyCodes.hpp"
+#include "Engine/KeyCodes.hpp"
 //*********************************************************
 
 
 
 //Engine interface
 //*********************************************************
-#include "Application.hpp"
-#include "Log.hpp"
-#include "Window.hpp"
-#include "Input.hpp"
+#include "Engine/Application.hpp"
+#include "Engine/Log.hpp"
+#include "Engine/Window.hpp"
+#include "Engine/Input.hpp"
 //*********************************************************
 
 
 
 //Entry point
 //*********************************************************
-#include "EntryPoint.hpp"
+#include "Engine/EntryPoint.hpp"
 //*********************************************************
 
 
 
 //Events
 //*********************************************************
-#include "Events/Event.hpp"
-#include "Events/ApplicationEvent.hpp"
-#include "Events/KeyEvent.hpp"
-#include "Events/MouseEvent.hpp"
+#include "Engine/Events/Event.hpp"
+#include "Engine/Events/ApplicationEvent.hpp"
+#include "Engine/Events/KeyEvent.hpp"
+#include "Engine/Events/MouseEvent.hpp"
+//*********************************************************
+
+//Graphics
+//*********************************************************
+#include "Engine/Renderer/OrthographicCamera.hpp"
+#include "Engine/Renderer/RenderCommand.hpp"
+#include "Engine/Renderer/Renderer.hpp"
 //*********************************************************
 
 

@@ -16,7 +16,7 @@ namespace Engine
 
 
     Application::Application() :
-        m_isRunning(true), m_OrthographicCamera(-1.0f, 1.0f, -1.0f, 1.0f)
+        m_isRunning(true)
     {
         //Initialize logging
         Engine::Log::Init();
@@ -27,74 +27,6 @@ namespace Engine
 
         //Main window
         m_main_window = CreateWindow();
-
-
-
-        //Init a triangle
-        VAO = VertexArray::Create();
-
-        //Fill buffers wit data
-        float vertices[] =
-        {
-            -0.5f, -0.5f,  0.0f,
-             0.0f,  0.5f,  0.0f,
-             0.5f, -0.5f,  0.0f
-        };
-
-        unsigned int indices[] =
-        {
-            0, 1, 2
-        };
-
-        VBO = VertexBuffer::Create(vertices, sizeof(vertices));
-        IBO = IndexBuffer::Create(indices, sizeof(indices));
-
-
-
-        BufferLayout buffer_layout(
-        {
-            Layout(Type::VEC3_FLOAT, "in_position")
-        });
-        VBO->SetLayout(buffer_layout);
-
-        VAO->AddVertexBuffer(VBO);
-        VAO->SetIndexBuffer(IBO);
-
-
-
-        glBindVertexArray(0);
-
-        std::string vertex_shd = R"(
-            #version 410
-
-
-            layout (location = 0) in vec3 in_position;
-
-            uniform mat4 u_viewprojmat;
-
-
-            void main()
-            {
-                gl_Position = u_viewprojmat * vec4(in_position, 1.0);
-            }
-        )";
-
-        std::string fragment_shd = R"(
-            #version 410
-
-
-            out vec4 out_color;
-
-
-            void main()
-            {
-                out_color = vec4(1.0, 0.0, 0.0, 1.0);
-            }
-        )";
-
-        SHD = Shader::CreateShader(vertex_shd, fragment_shd);
-
-
 
         //Push ImGui overlay
         #ifdef ENGINE_DEBUG
@@ -107,10 +39,6 @@ namespace Engine
 
     void Application::Run()
     {
-        m_OrthographicCamera.SetRotation(glm::radians(90.0f));
-        m_OrthographicCamera.SetPosition({0.5f, 0.5f, 0.0f});
-        m_OrthographicCamera.RecalculateViewMatrix();
-
         //Event handling
         PollEvents();
 
@@ -123,16 +51,6 @@ namespace Engine
         for(Layer* layer : m_layer_stack)
             layer->OnImGuiRender();
         #endif // ENGINE_DEBUG
-
-
-
-        //Draw test triangle
-        RenderCommand::SetClearColor({0.2f, 0.2f, 1.0f, 1.0f});
-        RenderCommand::Clear();
-
-        Renderer::Begin(m_OrthographicCamera);
-        Renderer::Submit(SHD, VAO);
-        Renderer::End();
 
 
 
