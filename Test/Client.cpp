@@ -57,12 +57,13 @@ public:
 
             layout (location = 0) in vec3 in_position;
 
+            uniform mat4 u_modelmat;
             uniform mat4 u_viewprojmat;
 
 
             void main()
             {
-                gl_Position = u_viewprojmat * vec4(in_position, 1.0);
+                gl_Position = u_viewprojmat * u_modelmat * vec4(in_position, 1.0);
             }
         )";
 
@@ -98,7 +99,7 @@ public:
         // Recalculate camera
         /////////////////////////////////////
 
-        m_OrthographicCamera.SetRotation(glm::radians(90.0f));
+        m_OrthographicCamera.SetRotation(glm::radians(45.0f));
         m_OrthographicCamera.SetPosition({0.5f, 0.5f, 0.0f});
         m_OrthographicCamera.RecalculateViewMatrix();
 
@@ -112,7 +113,7 @@ public:
         Engine::RenderCommand::Clear();
 
         Engine::Renderer::Begin(m_OrthographicCamera);
-        Engine::Renderer::Submit(SHD, VAO);
+        Engine::Renderer::Submit(SHD, VAO, TSF.GetModelMatrix());
         Engine::Renderer::End();
     }
 
@@ -130,6 +131,7 @@ public:
 
 private:
 
+    Engine::Transform TSF;
     Engine::OrthographicCamera m_OrthographicCamera;
     std::shared_ptr<Engine::VertexBuffer> VBO;
     std::shared_ptr<Engine::IndexBuffer> IBO;

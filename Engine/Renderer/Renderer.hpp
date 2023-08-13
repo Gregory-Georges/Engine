@@ -20,7 +20,7 @@ namespace Engine
         static void Begin(OrthographicCamera& camera);
         static void End();
 
-        static void Submit(const std::shared_ptr<Shader>& shd, const std::shared_ptr<VertexArray>& va);
+        static void Submit(const std::shared_ptr<Shader>& shd, const std::shared_ptr<VertexArray>& va, glm::mat4 model_mat);
 
     private:
 
