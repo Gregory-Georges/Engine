@@ -13,8 +13,10 @@ namespace Engine
     void Transform::RecalculateModelMatrix()
     {
         m_modelmatrix = glm::mat4(1.0f);
-        m_modelmatrix = glm::scale(m_modelmatrix, m_scale);
-        m_modelmatrix = glm::rotate(m_modelmatrix, glm::radians(360.0f), m_rotation);
         m_modelmatrix = glm::translate(m_modelmatrix, m_position);
+        m_modelmatrix = glm::rotate(m_modelmatrix, glm::radians(m_rotation.x), { 1.0f, 0.0f, 0.0f });
+        m_modelmatrix = glm::rotate(m_modelmatrix, glm::radians(m_rotation.y), { 0.0f, 1.0f, 0.0f });
+        m_modelmatrix = glm::rotate(m_modelmatrix, glm::radians(m_rotation.z), { 0.0f, 0.0f, 1.0f });
+        m_modelmatrix = glm::scale(m_modelmatrix, m_scale);
     }
 }

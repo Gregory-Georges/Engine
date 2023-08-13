@@ -96,21 +96,16 @@ public:
     void OnRender() override
     {
         /////////////////////////////////////
-        // Recalculate camera
-        /////////////////////////////////////
-
-        m_OrthographicCamera.SetRotation(glm::radians(45.0f));
-        m_OrthographicCamera.SetPosition({0.5f, 0.5f, 0.0f});
-        m_OrthographicCamera.RecalculateViewMatrix();
-
-
-
-        /////////////////////////////////////
         //Draw test triangle
         /////////////////////////////////////
 
         Engine::RenderCommand::SetClearColor({0.0f, 0.0f, 0.8f, 1.0f});
         Engine::RenderCommand::Clear();
+
+        TSF.SetPosition(glm::vec3(0.5f, 0.5f, 0.0f));
+        TSF.SetRotation(glm::vec3(0.0f, 0.0f, 90.0f));
+        TSF.SetScale(glm::vec3(1.0f, 0.5f, 1.0f));
+        TSF.RecalculateModelMatrix();
 
         Engine::Renderer::Begin(m_OrthographicCamera);
         Engine::Renderer::Submit(SHD, VAO, TSF.GetModelMatrix());
