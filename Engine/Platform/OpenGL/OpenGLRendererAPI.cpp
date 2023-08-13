@@ -7,7 +7,7 @@ namespace Engine
 {
     void OpenGLRendererAPI::SetClearColor(const glm::vec4& color)
     {
-        glClearColor(color.r, color.b, color.g, color.a);
+        glClearColor(color.x, color.y, color.z, color.w);
     }
 
     void OpenGLRendererAPI::Clear()

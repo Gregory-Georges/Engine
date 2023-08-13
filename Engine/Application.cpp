@@ -7,6 +7,8 @@
 #include "Engine/Renderer/Renderer.hpp"
 #include "Engine/Renderer/RenderCommand.hpp"
 
+#include "Engine/Core/Timestep.hpp"
+
 
 
 namespace Engine
@@ -39,10 +41,19 @@ namespace Engine
 
     void Application::Run()
     {
+        //Get delta time
+        float time = (float)glfwGetTime();              //<This code should be in platform
+        Timestep timestep = time - m_lastFrameTime;
+        m_lastFrameTime = time;
+
         //Event handling
         PollEvents();
 
-        //Draw layers
+        //Update layers
+        for(Layer* layer : m_layer_stack)
+            layer->OnUpdate(timestep);
+
+        //Draw  layers
         for(Layer* layer : m_layer_stack)
             layer->OnRender();
 
@@ -58,38 +69,6 @@ namespace Engine
         m_main_window->OnUpdate();
     }
 
-
-
-    void Application::PushLayer(Layer* layer)
-    {
-        m_layer_stack.PushLayer(layer);
-    }
-
-
-
-    void Application::PushOverlay(Layer* overlay)
-    {
-        m_layer_stack.PushOverlay(overlay);
-    }
-
-
-
-    Application* Application::GetInstance()
-    {
-        return s_instance;
-    }
-
-    Window& Application::GetMainWindow()
-    {
-        return *m_main_window;
-    }
-
-
-
-    void Application::SendEvent(Event* event)
-    {
-        m_EventQueue.push(event);
-    }
 
 
 

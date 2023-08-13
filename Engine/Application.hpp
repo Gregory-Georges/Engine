@@ -6,18 +6,12 @@
 
 #include "Log.hpp"
 #include "LayerStack.hpp"
-#include "Engine/Renderer/Shader.hpp"
-#include "Engine/Renderer/Buffer.hpp"
-#include "Engine/Renderer/VertexArray.hpp"
-#include "Engine/Renderer/OrthographicCamera.hpp"
 
 #include "Platform/Platform.hpp"
 
 
-
 namespace Engine
 {
-
     //
     // All applications inherit from application class
     //
@@ -30,28 +24,31 @@ namespace Engine
 
             void Run();
 
-            void PushLayer(Layer* layer);
-            void PushOverlay(Layer* overlay);
+            inline void PushLayer(Layer* layer) { m_layer_stack.PushLayer(layer); }
+            inline void PushOverlay(Layer* overlay) { m_layer_stack.PushOverlay(overlay); }
 
-            static Application* GetInstance();
+            inline static Application* GetInstance() { return s_instance; }
 
-            Window& GetMainWindow();
+            inline Window& GetMainWindow() { return *m_main_window; }
             bool m_isRunning;
 
-            void SendEvent(Event* event);
+            inline void SendEvent(Event* event) { m_EventQueue.push(event); }
+
+        private:
+
+            std::queue<Event*> m_EventQueue;
+            void PollEvents();
 
         private:
 
             static Application* s_instance;
             Window* m_main_window;
             LayerStack m_layer_stack;
+            float m_lastFrameTime = 0.0f;
 
             #ifdef ENGINE_DEBUG
             Layer* m_ImGuiLayer;
             #endif // ENGINE_DEBUG
-
-            std::queue<Event*> m_EventQueue;
-            void PollEvents();
     };
 
 

@@ -1,7 +1,8 @@
 #ifndef LAYER_HPP
 #define LAYER_HPP
 
-#include "Events/Event.hpp"
+#include "Engine/Events/Event.hpp"
+#include "Engine/Core/Timestep.hpp"
 
 
 
@@ -15,7 +16,7 @@ namespace Engine
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnRender() {}
 		virtual void OnEvent(Event* event) {}
 

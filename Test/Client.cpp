@@ -87,7 +87,7 @@ public:
 
     }
 
-    void OnUpdate() override
+    void OnUpdate(Engine::Timestep ts) override
     {
 
     }
@@ -108,7 +108,7 @@ public:
         //Draw test triangle
         /////////////////////////////////////
 
-        Engine::RenderCommand::SetClearColor({0.2f, 0.2f, 1.0f, 1.0f});
+        Engine::RenderCommand::SetClearColor({0.0f, 0.0f, 0.8f, 1.0f});
         Engine::RenderCommand::Clear();
 
         Engine::Renderer::Begin(m_OrthographicCamera);
