@@ -14,7 +14,7 @@ namespace Engine
     class Renderer
     {
     public:
-        static RendererAPI::API GetAPI();
+        inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 
         static void Begin();
         static void Begin(OrthographicCamera& camera);

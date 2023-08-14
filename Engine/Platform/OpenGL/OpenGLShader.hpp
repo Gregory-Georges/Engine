@@ -16,8 +16,15 @@ namespace Engine
             OpenGLShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
             ~OpenGLShader();
 
-            void Use() override;
-            void UploadUniformMat4(const glm::mat4& matrix, std::string name) override;
+            void Bind() override;
+
+            void UploadUniformInt(int uni, std::string name);
+            void UploadUniformFloat(float uni, std::string name);
+            void UploadUniformFloat2(const glm::vec2 vec, std::string name);
+            void UploadUniformFloat3(const glm::vec3& vec, std::string name);
+            void UploadUniformFloat4(const glm::vec4& vec, std::string name);
+            void UploadUniformMat3(const glm::mat3& mat, std::string name);
+            void UploadUniformMat4(const glm::mat4& mat, std::string name);
 
 
 

@@ -40,6 +40,21 @@ namespace Engine
 
 
 
+    void ImGuiFunctions::ImGuiNewFrame()
+    {
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+    }
+
+    void ImGuiFunctions::ImGuiDraw()
+    {
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    }
+
+
+
     void ImGuiFunctions::ImGuiBegin(std::string window_name)
     {
         ImGui::Begin(window_name.c_str());

@@ -45,10 +45,6 @@ namespace Engine
             Window* m_main_window;
             LayerStack m_layer_stack;
             float m_lastFrameTime = 0.0f;
-
-            #ifdef ENGINE_DEBUG
-            Layer* m_ImGuiLayer;
-            #endif // ENGINE_DEBUG
     };
 
 

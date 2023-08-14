@@ -1,13 +1,16 @@
 #include "Engine/pch.hpp"
 #include "Engine/Application.hpp"
 
-#include "Engine/ImGuiLayer.hpp"
 #include "Engine/Input.hpp"
 
 #include "Engine/Renderer/Renderer.hpp"
 #include "Engine/Renderer/RenderCommand.hpp"
 
 #include "Engine/Core/Timestep.hpp"
+
+#ifdef ENGINE_DEBUG
+#include "Engine/ImGuiFunctions.hpp"
+#endif // ENGINE_DEBUG
 
 
 
@@ -30,11 +33,9 @@ namespace Engine
         //Main window
         m_main_window = CreateWindow();
 
-        //Push ImGui overlay
         #ifdef ENGINE_DEBUG
-        m_ImGuiLayer = new Engine::ImGuiLayer();
-        PushOverlay(m_ImGuiLayer);
-        #endif // ENGINE_DEBUG
+        ImGuiFunctions::Get().ImGuiInit();
+        #endif
     }
 
 
@@ -59,8 +60,12 @@ namespace Engine
 
         //Draw ImGui
         #ifdef ENGINE_DEBUG
+        ImGuiFunctions::Get().ImGuiNewFrame();
+
         for(Layer* layer : m_layer_stack)
             layer->OnImGuiRender();
+
+        ImGuiFunctions::Get().ImGuiDraw();
         #endif // ENGINE_DEBUG
 
 

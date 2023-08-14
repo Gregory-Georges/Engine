@@ -13,7 +13,7 @@ namespace Engine
 
     OpenGLShader::OpenGLShader(const std::string& path)
     {
-        ENGINE_CORE_ERROR("OpenGLShader::OpenGLShader(const std::string& path) undefined");
+        ENGINE_CORE_ERROR("OpenGLShader::OpenGLShader(const std::string& path) undefined, but used");
     }
 
     OpenGLShader::OpenGLShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src)
@@ -54,17 +54,47 @@ namespace Engine
 
 
 
-    void OpenGLShader::Use()
+    void OpenGLShader::Bind()
     {
         glUseProgram(m_shader_id);
     }
 
 
 
-    void OpenGLShader::UploadUniformMat4(const glm::mat4& matrix, std::string name)
+    void OpenGLShader::UploadUniformInt(int uni, std::string name)
     {
         int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
-        glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(matrix));
+        glUniform1i(uniformLocation, uni);
+    }
+    void OpenGLShader::UploadUniformFloat(float uni, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniform1f(uniformLocation, uni);
+    }
+    void OpenGLShader::UploadUniformFloat2(const glm::vec2 vec, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniform2f(uniformLocation, vec.x, vec.y);
+    }
+    void OpenGLShader::UploadUniformFloat3(const glm::vec3& vec, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniform3fv(uniformLocation, 1, glm::value_ptr(vec));
+    }
+    void OpenGLShader::UploadUniformFloat4(const glm::vec4& vec, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniform4fv(uniformLocation, 1, glm::value_ptr(vec));
+    }
+    void OpenGLShader::UploadUniformMat3(const glm::mat3& mat, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniformMatrix3fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(mat));
+    }
+    void OpenGLShader::UploadUniformMat4(const glm::mat4& mat, std::string name)
+    {
+        int uniformLocation = glGetUniformLocation(m_shader_id, name.c_str());
+        glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(mat));
     }
 
 

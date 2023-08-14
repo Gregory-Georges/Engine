@@ -15,6 +15,9 @@ namespace Engine
         void ImGuiInit();
         void ImGuiTerminate();
 
+        void ImGuiNewFrame();
+        void ImGuiDraw();
+
         void ImGuiBegin(std::string window_name);
         void ImGuiEnd();
 

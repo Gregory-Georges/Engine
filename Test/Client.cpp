@@ -1,5 +1,9 @@
 #include "../Engine/Engine.hpp"
 
+#include "Dependencies/imgui/imgui.h"
+#include "Engine/ImGuiFunctions.hpp"
+#include "glm/gtc/type_ptr.hpp"
+
 
 
 class ExampleLayer : public Engine::Layer
@@ -7,7 +11,7 @@ class ExampleLayer : public Engine::Layer
 public:
 
     ExampleLayer() :
-        m_OrthographicCamera(-1.0, 1.0, -1.0, 1.0 ) //Init camera
+        m_OrthographicCamera(-1.0, 1.0, -1.0, 1.0 ), m_color(1.0f)
     {
 
     }
@@ -99,7 +103,7 @@ public:
         //Draw test triangle
         /////////////////////////////////////
 
-        Engine::RenderCommand::SetClearColor({0.0f, 0.0f, 0.8f, 1.0f});
+        Engine::RenderCommand::SetClearColor({0.5f, 0.5f, 0.8f, 1.0f});
         Engine::RenderCommand::Clear();
 
         TSF.SetPosition(glm::vec3(0.5f, 0.5f, 0.0f));
@@ -121,13 +125,16 @@ public:
 
     void OnImGuiRender() override
     {
-
+        ImGui::Begin("Test");
+        ImGui::ColorEdit3("Color", glm::value_ptr(m_color));
+        ImGui::End();
     }
 
 private:
 
     Engine::Transform TSF;
     Engine::OrthographicCamera m_OrthographicCamera;
+    glm::vec3 m_color;
     std::shared_ptr<Engine::VertexBuffer> VBO;
     std::shared_ptr<Engine::IndexBuffer> IBO;
     std::shared_ptr<Engine::VertexArray> VAO;
