@@ -132,13 +132,13 @@ public:
 
 private:
 
+    glm::vec3 m_color;
     Engine::Transform TSF;
     Engine::OrthographicCamera m_OrthographicCamera;
-    glm::vec3 m_color;
-    std::shared_ptr<Engine::VertexBuffer> VBO;
-    std::shared_ptr<Engine::IndexBuffer> IBO;
-    std::shared_ptr<Engine::VertexArray> VAO;
-    std::shared_ptr<Engine::Shader> SHD;
+    Engine::Ref<Engine::VertexBuffer> VBO;
+    Engine::Ref<Engine::IndexBuffer> IBO;
+    Engine::Ref<Engine::VertexArray> VAO;
+    Engine::Ref<Engine::Shader> SHD;
 };
 
 

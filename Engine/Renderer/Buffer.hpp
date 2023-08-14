@@ -3,6 +3,8 @@
 
 #include <memory>
 
+#include "Engine/Core.hpp"
+
 
 
 namespace Engine
@@ -59,7 +61,7 @@ namespace Engine
     class VertexBuffer
     {
     public:
-        static std::shared_ptr<VertexBuffer> Create(void* data, int size);
+        static Ref<VertexBuffer> Create(void* data, int size);
 
         virtual void Bind() = 0;
         virtual void SetLayout(const BufferLayout& buffer_layout) = 0;
@@ -73,7 +75,7 @@ namespace Engine
     class IndexBuffer
     {
     public:
-        static std::shared_ptr<IndexBuffer> Create(unsigned int* data, int size);
+        static Ref<IndexBuffer> Create(unsigned int* data, int size);
         virtual int GetCount() = 0;
 
         virtual void Bind() = 0;

@@ -4,6 +4,8 @@
 #include <string>
 #include "glm/glm.hpp"
 
+#include "Engine/Core.hpp"
+
 
 
 namespace Engine
@@ -14,8 +16,8 @@ namespace Engine
 
         virtual ~Shader() {}
 
-        static std::shared_ptr<Shader> CreateShader(const std::string& path);
-        static std::shared_ptr<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
+        static Ref<Shader> CreateShader(const std::string& path);
+        static Ref<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
 
         virtual void Bind() = 0;
 
