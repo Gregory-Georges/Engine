@@ -38,7 +38,8 @@ project "Engine"
     	    "Dependencies/glfw/include",
     	    "Dependencies/glm/glm/",
     	    "Dependencies/imgui",
-    	    "Dependencies/spdlog/include"
+    	    "Dependencies/spdlog/include",
+    	    "Dependencies/stb"
     	}
 
         files
@@ -60,7 +61,8 @@ project "Engine"
             "Dependencies/glad/Glad",
             "Dependencies/glfw/src/glfw3",
             "Dependencies/imgui/imgui",
-            "Dependencies/spdlog/spdlog"
+            "Dependencies/spdlog/spdlog",
+            "Dependencies/stb/stb"
         }
 
 
@@ -122,7 +124,8 @@ project "Test"
             "Dependencies/glad/Glad",
             "Dependencies/glfw/src/glfw3",
             "Dependencies/imgui/imgui",
-            "Dependencies/spdlog/spdlog"
+            "Dependencies/spdlog/spdlog",
+            "Dependencies/stb/stb"
         }
         
         dependson

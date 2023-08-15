@@ -27,9 +27,9 @@ public:
         //Fill buffers with data
         float vertices[] =
         {
-            -0.5f, -0.5f,  0.0f,
-             0.0f,  0.5f,  0.0f,
-             0.5f, -0.5f,  0.0f
+            -0.5f, -0.5f,  0.0f,  0.0f,  0.0f,
+             0.0f,  0.5f,  0.0f,  0.5f,  1.0f,
+             0.5f, -0.5f,  0.0f,  1.0f,  0.0f
         };
         unsigned int indices[] =
         {
@@ -41,7 +41,8 @@ public:
 
         Engine::BufferLayout buffer_layout(
         {
-            Engine::Layout(Engine::Type::VEC3_FLOAT, "in_position")
+            Engine::Layout(Engine::Type::VEC3_FLOAT, "in_position"),
+            Engine::Layout(Engine::Type::VEC2_FLOAT, "in_TexCoords")
         });
         VBO->SetLayout(buffer_layout);
 
