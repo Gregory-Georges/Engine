@@ -31,6 +31,8 @@ namespace Engine
         Texture2D() = default;
         virtual ~Texture2D() = default;
 
+        virtual void Bind(int slot = 0) = 0;
+
         static Ref<Texture2D> Create(const std::string& path);
     };
 }

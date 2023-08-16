@@ -20,7 +20,6 @@
 
 //defines debug mode macros
 //*********************************************************
-#include "Engine/Debug.hpp"
 #include "Engine/Core.hpp"
 //*********************************************************
 
@@ -63,6 +62,7 @@
 #include "Engine/Renderer/OrthographicCamera.hpp"
 #include "Engine/Renderer/RenderCommand.hpp"
 #include "Engine/Renderer/Renderer.hpp"
+#include "Engine/Renderer/Texture.hpp"
 //*********************************************************
 
 //Components

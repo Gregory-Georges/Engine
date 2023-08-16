@@ -2,7 +2,6 @@
 #define OPENGLTEXTURE2D_HPP
 
 #include "Engine/Renderer/Texture.hpp"
-#include "glad/glad.h"
 
 
 
@@ -13,7 +12,8 @@ namespace Engine
     public:
 
         OpenGLTexture2D(const std::string& path);
-        void Bind(int slot) override;
+        ~OpenGLTexture2D();
+        void Bind(int slot = 0) override;
 
         int GetWidth() override;
         int GetHeight() override;

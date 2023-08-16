@@ -135,13 +135,10 @@ project "Test"
 
 
         filter "Configurations:Debug"
-            defines "ENGINE_DEBUG"
             symbols "on"
 
         filter "Configurations:Release"
-            defines "ENGINE_RELEASE"
             optimize "on"
 
         filter "Configurations:Dist"
-            defines "ENGINE_DIST"
             optimize "on"

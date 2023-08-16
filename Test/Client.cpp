@@ -26,7 +26,7 @@ public:
 
         //Fill buffers with data
         float vertices[] =
-        {
+        {   //Positions           //Texture coordinates
             -0.5f, -0.5f,  0.0f,  0.0f,  0.0f,
              0.0f,  0.5f,  0.0f,  0.5f,  1.0f,
              0.5f, -0.5f,  0.0f,  1.0f,  0.0f
@@ -61,14 +61,18 @@ public:
 
 
             layout (location = 0) in vec3 in_position;
+            layout (location = 1) in vec2 in_tex_coords;
 
             uniform mat4 u_modelmat;
             uniform mat4 u_viewprojmat;
+
+            out vec2 v_tex_coords;
 
 
             void main()
             {
                 gl_Position = u_viewprojmat * u_modelmat * vec4(in_position, 1.0);
+                v_tex_coords = in_tex_coords;
             }
         )";
 
@@ -78,20 +82,30 @@ public:
 
             out vec4 out_color;
 
+            in vec2 v_tex_coords;
+
+            uniform sampler2D u_texture;
+
 
             void main()
             {
-                out_color = vec4(1.0, 0.0, 0.0, 1.0);
+                out_color = texture(u_texture, v_tex_coords);
             }
         )";
 
         SHD = Engine::Shader::CreateShader(vertex_shd, fragment_shd);
+
+        /////////////////////////////////////
+        // Load assets
+        /////////////////////////////////////
+
+        TXT = Engine::Texture2D::Create("assets/textures/wood.png");
     }
 
     void OnDetach() override
     {
 
-    }
+    }//////////////////////////////
 
     void OnUpdate(Engine::Timestep ts) override
     {
@@ -111,6 +125,8 @@ public:
         TSF.SetRotation(glm::vec3(0.0f, 0.0f, 90.0f));
         TSF.SetScale(glm::vec3(1.0f, 0.5f, 1.0f));
         TSF.RecalculateModelMatrix();
+
+        TXT->Bind();
 
         Engine::Renderer::Begin(m_OrthographicCamera);
         Engine::Renderer::Submit(SHD, VAO, TSF.GetModelMatrix());
@@ -140,6 +156,7 @@ private:
     Engine::Ref<Engine::IndexBuffer> IBO;
     Engine::Ref<Engine::VertexArray> VAO;
     Engine::Ref<Engine::Shader> SHD;
+    Engine::Ref<Engine::Texture2D> TXT;
 };
 
 
