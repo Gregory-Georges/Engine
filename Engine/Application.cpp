@@ -21,7 +21,7 @@ namespace Engine
 
 
     Application::Application() :
-        m_isRunning(true)
+        m_running(true)
     {
         //Initialize logging
         Engine::Log::Init();

@@ -3,6 +3,8 @@
 
 #include "Application.hpp"
 
+#include <iostream>
+
 
 
 //Defined in client
@@ -19,7 +21,7 @@ int main()
     auto* app = Engine::CreateApplication();
 
     //Program loop
-    while(app->m_isRunning)
+    while(app->Running())
         app->Run();
 
     //Cleanup

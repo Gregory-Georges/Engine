@@ -122,6 +122,8 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
         ENGINE_SEND_EVENT(WindowCloseEvent);
         ENGINE_INFO("Window close callback occurred");
+
+        Application::GetInstance()->SetRunning(false);
     });
 
     glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)

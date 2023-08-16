@@ -19,6 +19,9 @@ namespace Engine
     {
         public:
 
+            inline void SetRunning(bool running) { m_running = running; }
+            inline bool Running() { return m_running; }
+
             Application();
             virtual ~Application() { delete m_main_window; }
 
@@ -45,6 +48,7 @@ namespace Engine
             Window* m_main_window;
             LayerStack m_layer_stack;
             float m_lastFrameTime = 0.0f;
+            bool m_running;
     };
 
 
