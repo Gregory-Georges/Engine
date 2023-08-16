@@ -13,9 +13,11 @@ namespace Engine
     {
     public:
 
-        static void SetClearColor(const glm::vec4& color);
-        static void Clear();
-        static void DrawIndexed(const std::shared_ptr<VertexArray>& va);
+        static void Init() { s_RendererAPI->Init(); }
+
+        static void SetClearColor(const glm::vec4& color) { s_RendererAPI->SetClearColor(color); }
+        inline static void Clear() { s_RendererAPI->Clear(); }
+        inline static void DrawIndexed(const std::shared_ptr<VertexArray>& va) { s_RendererAPI->DrawIndexed(va); }
 
     private:
         static RendererAPI* s_RendererAPI;

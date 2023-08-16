@@ -13,6 +13,13 @@ namespace Engine
 
 
 
+    void Renderer::Init()
+    {
+        RenderCommand::Init();
+    }
+
+
+
     void Renderer::Begin(OrthographicCamera& camera)
     {
         m_SceneData->viewproj_mat = camera.GetViewProjMatrix();

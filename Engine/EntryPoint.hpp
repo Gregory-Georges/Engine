@@ -3,8 +3,6 @@
 
 #include "Application.hpp"
 
-#include <iostream>
-
 
 
 //Defined in client

@@ -32,6 +32,7 @@ namespace Engine
 
         //Main window
         m_main_window = CreateWindow();
+        Renderer::Init();
 
         #ifdef ENGINE_DEBUG
         ImGuiFunctions::Get().ImGuiInit();
