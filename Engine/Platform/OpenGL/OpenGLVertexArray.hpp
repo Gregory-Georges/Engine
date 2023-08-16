@@ -16,6 +16,7 @@ namespace Engine
     public:
 
         OpenGLVertexArray();
+        ~OpenGLVertexArray();
 
         void Bind() override;
         void Unbind() override;

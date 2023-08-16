@@ -11,6 +11,7 @@ namespace Engine
     {
     public:
         OpenGLVertexBuffer(void* data, int size);
+        ~OpenGLVertexBuffer();
         void Bind() override;
         void SetLayout(const BufferLayout& buffer_layout) override;
 
@@ -25,6 +26,7 @@ namespace Engine
     {
     public:
         OpenGLIndexBuffer(unsigned int* data, int size);
+        ~OpenGLIndexBuffer();
         void Bind() override;
         inline int GetCount() override;
 

@@ -12,6 +12,8 @@ namespace Engine
 {
     OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
     {
+        stbi_set_flip_vertically_on_load(true);
+
         //Load image
         int sizex, sizey, channels;
         unsigned char* image = stbi_load(path.c_str(), &sizex, &sizey, &channels, 0);
@@ -22,7 +24,6 @@ namespace Engine
 
         //Create texture
         glCreateTextures(GL_TEXTURE_2D, 1, &m_textureID);
-        ENGINE_CORE_INFO(channels);
         glTextureStorage2D(m_textureID, 1, channels * 1, m_width, m_height);
 
         //Parameterize texture

@@ -12,6 +12,11 @@ namespace Engine
         glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
     }
 
+    OpenGLVertexBuffer::~OpenGLVertexBuffer()
+    {
+        glDeleteBuffers(1, &m_buffer_id);
+    }
+
     void OpenGLVertexBuffer::Bind()
     {
         glBindBuffer(GL_ARRAY_BUFFER, m_buffer_id);
@@ -35,6 +40,11 @@ namespace Engine
         glCreateBuffers(1, &m_buffer_id);
         Bind();
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
+    }
+
+    OpenGLIndexBuffer::~OpenGLIndexBuffer()
+    {
+        glDeleteBuffers(1, &m_buffer_id);
     }
 
     void OpenGLIndexBuffer::Bind()

@@ -9,6 +9,11 @@ namespace Engine
         glCreateVertexArrays(1, &id);
     }
 
+    OpenGLVertexArray::~OpenGLVertexArray()
+    {
+        glDeleteVertexArrays(1, &id);
+    }
+
 
 
     void OpenGLVertexArray::Bind()
