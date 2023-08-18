@@ -11,7 +11,7 @@ namespace Engine
     {
     public:
 
-        OrthographicCamera(float left, float right, float bottom, float top);
+        OrthographicCamera(float x, float y);
 
         inline void SetPosition(const glm::vec3& pos) { m_pos = pos; }
         inline void SetRotation(float rot) { m_rotation = rot; }
@@ -23,6 +23,8 @@ namespace Engine
         inline const glm::mat4& GetViewProjMatrix() { return m_viewproj_mat; }
 
         void RecalculateViewMatrix();
+        void RecalculateProjMatrix(float x, float y);
+        void RecalculateViewProjMatrix();
 
     private:
 

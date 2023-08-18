@@ -9,6 +9,8 @@
 #include "Engine/Events/MouseEvent.hpp"
 #include "Engine/Log.hpp"
 
+#include "Engine/Renderer/RenderCommand.hpp"
+
 
 
 int Engine::LinuxWindow::window_count = 0;
@@ -104,7 +106,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
 
         Data.Width = width;
         Data.Height = height;
-        glViewport(0, 0, width, height);
+        RenderCommand::SetViewport(width, height);
 
         ENGINE_SEND_EVENT(WindowResizeEvent, width, height);
         ENGINE_INFO("Window size callback occurred");

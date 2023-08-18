@@ -11,6 +11,11 @@ namespace Engine
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
+    void OpenGLRendererAPI::SetViewport(int width, int height)
+    {
+        glViewport(0, 0, width, height);
+    }
+
     void OpenGLRendererAPI::SetClearColor(const glm::vec4& color)
     {
         glClearColor(color.x, color.y, color.z, color.w);

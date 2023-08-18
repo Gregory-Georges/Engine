@@ -11,7 +11,7 @@ class ExampleLayer : public Engine::Layer
 public:
 
     ExampleLayer() :
-        m_OrthographicCamera(-1.0, 1.0, -1.0, 1.0 ), m_color(1.0f)
+        m_OrthographicCamera(4, 2), m_color(1.0f)
     {
 
     }
@@ -28,12 +28,14 @@ public:
         float vertices[] =
         {   //Positions           //Texture coordinates
             -0.5f, -0.5f,  0.0f,  0.0f,  0.0f,
-             0.0f,  0.5f,  0.0f,  0.5f,  1.0f,
-             0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+             0.5f,  0.5f,  0.0f,  1.0f,  1.0f,
+             0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f,  0.0f,  0.0f,  1.0f
         };
         unsigned int indices[] =
         {
-            0, 1, 2
+            0, 2, 1,
+            0, 3, 1
         };
 
         VBO = Engine::VertexBuffer::Create(vertices, sizeof(vertices));
@@ -99,7 +101,7 @@ public:
         // Load assets
         /////////////////////////////////////
 
-        TXT = Engine::Texture2D::Create("assets/textures/wood.png");
+        TXT = Engine::Texture2D::Create("assets/textures/chess.png");
     }
 
     void OnDetach() override
@@ -121,11 +123,6 @@ public:
         Engine::RenderCommand::SetClearColor({0.5f, 0.5f, 0.8f, 1.0f});
         Engine::RenderCommand::Clear();
 
-        TSF.SetPosition(glm::vec3(0.5f, 0.5f, 0.0f));
-        TSF.SetRotation(glm::vec3(0.0f, 0.0f, 90.0f));
-        TSF.SetScale(glm::vec3(1.0f, 0.5f, 1.0f));
-        TSF.RecalculateModelMatrix();
-
         TXT->Bind();
 
         Engine::Renderer::Begin(m_OrthographicCamera);
@@ -135,7 +132,13 @@ public:
 
     void OnEvent(Engine::Event* event) override
     {
-
+        Engine::EventDispatcher event_dispatcher(*event);
+        event_dispatcher.Dispatch<Engine::WindowResizeEvent>([this](Engine::WindowResizeEvent f_ev)
+        {
+            this->m_OrthographicCamera.RecalculateProjMatrix(f_ev.GetNewX(), f_ev.GetNewY());
+            this->m_OrthographicCamera.RecalculateViewProjMatrix();
+            return false;
+        });
     }
 
 
