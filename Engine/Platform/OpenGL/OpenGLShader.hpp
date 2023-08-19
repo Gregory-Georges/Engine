@@ -3,6 +3,9 @@
 
 #include "Engine/Renderer/Shader.hpp"
 
+#include <string>
+#include <unordered_map>
+
 
 
 namespace Engine
@@ -32,6 +35,8 @@ namespace Engine
 
             unsigned int m_shader_id;
             unsigned int CompileSource(const std::string& src, int shader_type);
+            std::string ReadFile(const std::string& path);
+            std::unordered_map<GLenum, std::string> Preprocess(const std::string& file_str);
     };
 
 }

@@ -16,8 +16,8 @@ namespace Engine
 
         virtual ~Shader() {}
 
-        static Ref<Shader> CreateShader(const std::string& path);
-        static Ref<Shader> CreateShader(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
+        static Ref<Shader> Create(const std::string& path);
+        static Ref<Shader> Create(const std::string& vertex_shader_src, const std::string& fragment_shader_src);
 
         virtual void Bind() = 0;
 
