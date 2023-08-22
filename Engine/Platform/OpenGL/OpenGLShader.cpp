@@ -181,7 +181,7 @@ namespace Engine
 
     std::string OpenGLShader::ReadFile(const std::string& path)
     {
-        std::ifstream in(path);
+        std::ifstream in(path, std::ios::in | std::ios::binary);
         std::string file_str("");
 
         if(!in.is_open())

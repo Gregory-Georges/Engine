@@ -107,7 +107,8 @@ project "Test"
             "%{prj.name}/**.cpp",
             "%{prj.name}/**.hpp",
             "%{prj.name}/**.c",
-            "%{prj.name}/**.h"
+            "%{prj.name}/**.h",
+            "%{prj.name}/**.glsl"
         }
 
         defines

@@ -1,5 +1,5 @@
 #include "Engine/pch.hpp"
-#include "Engine/Platform/GLFW/LinuxWindow.hpp"
+#include "Engine/Platform/GLFW/GLFWWindow.hpp"
 
 #include "Engine/Platform/OpenGL/GLHeaders.hpp"
 #include "Engine/Application.hpp"
@@ -13,17 +13,17 @@
 
 
 
-int Engine::LinuxWindow::window_count = 0;
+int Engine::GLFWWindow::window_count = 0;
 
 
 
-Engine::LinuxWindow::LinuxWindow(const WindowProps& wp)
+Engine::GLFWWindow::GLFWWindow(const WindowProps& wp)
 {
     Init(wp);
     ++window_count;
 }
 
-Engine::LinuxWindow::~LinuxWindow()
+Engine::GLFWWindow::~GLFWWindow()
 {
     glfwDestroyWindow(m_Window);
     --window_count;
@@ -34,30 +34,30 @@ Engine::LinuxWindow::~LinuxWindow()
 
 
 
-void Engine::LinuxWindow::OnUpdate()
+void Engine::GLFWWindow::OnUpdate()
 {
     m_context->SwapBuffers();
 }
 
 
 
-unsigned int Engine::LinuxWindow::GetWidth()
+unsigned int Engine::GLFWWindow::GetWidth()
 {
     return m_data.Width;
 }
 
-unsigned int Engine::LinuxWindow::GetHeight()
+unsigned int Engine::GLFWWindow::GetHeight()
 {
     return m_data.Height;
 }
 
-void Engine::LinuxWindow::SetVSync(bool enabled)
+void Engine::GLFWWindow::SetVSync(bool enabled)
 {
     glfwSwapInterval(int(enabled));
     m_data.VSync = enabled;
 }
 
-bool Engine::LinuxWindow::IsVSync()
+bool Engine::GLFWWindow::IsVSync()
 {
     return m_data.VSync;
 }
@@ -65,14 +65,14 @@ bool Engine::LinuxWindow::IsVSync()
 
 
 //More stuff
-void* Engine::LinuxWindow::GetNativeWindow()
+void* Engine::GLFWWindow::GetNativeWindow()
 {
     return m_Window;
 }
 
 
 
-void Engine::LinuxWindow::Init(const WindowProps& wp)
+void Engine::GLFWWindow::Init(const WindowProps& wp)
 {
     //Initialize if necessary
     if(window_count == 0 && glfwInit() != GLFW_TRUE)
@@ -193,7 +193,7 @@ void Engine::LinuxWindow::Init(const WindowProps& wp)
     });
 }
 
-void Engine::LinuxWindow::Shutdown()
+void Engine::GLFWWindow::Shutdown()
 {
     glfwTerminate();
 }
@@ -205,5 +205,5 @@ void Engine::LinuxWindow::Shutdown()
 
 Engine::Window* Engine::CreateWindow()
 {
-    return new LinuxWindow(WindowProps());
+    return new GLFWWindow(WindowProps());
 }

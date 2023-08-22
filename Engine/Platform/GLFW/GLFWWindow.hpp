@@ -13,12 +13,12 @@ class GLFWwindow;
 namespace Engine
 {
 
-    class LinuxWindow : public Window
+    class GLFWWindow : public Window
     {
     public:
 
-        LinuxWindow(const WindowProps& wp);
-        ~LinuxWindow();
+        GLFWWindow(const WindowProps& wp);
+        ~GLFWWindow();
 
         void OnUpdate() override;
 

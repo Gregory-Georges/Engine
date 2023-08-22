@@ -13,7 +13,7 @@
     #define ENGINE_EXPORT __attribute__((visibility("default")))
     #define ENGINE_IMPORT
 
-    #include "GLFW/LinuxWindow.hpp"
+    #include "GLFW/GLFWWindow.hpp"
 #endif
 
 #ifdef PLATFORM_WINDOWS
