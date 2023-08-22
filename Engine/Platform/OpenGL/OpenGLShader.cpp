@@ -22,8 +22,8 @@ namespace Engine
         std::unordered_map<GLenum, std::string> sources = Preprocess(shaders_str);
 
         //Extract shaders from file
-        std::string vertex_shader_src = sources[GL_VERTEX_SHADER];
-        std::string fragment_shader_src = sources[GL_FRAGMENT_SHADER];
+        std::string& vertex_shader_src = sources[GL_VERTEX_SHADER];
+        std::string& fragment_shader_src = sources[GL_FRAGMENT_SHADER];
 
         //Compile all and link
         vertex_shd = CompileSource(vertex_shader_src, GL_VERTEX_SHADER);
@@ -132,18 +132,6 @@ namespace Engine
 
 
 
-    Ref<Shader> Shader::Create(const std::string& path)
-    {
-        return std::make_shared<OpenGLShader>(path);
-    }
-
-    Ref<Shader> Shader::Create(const std::string& vertex_shader_src, const std::string& fragment_shader_src)
-    {
-        return std::make_shared<OpenGLShader>(vertex_shader_src, fragment_shader_src);
-    }
-
-
-
     unsigned int OpenGLShader::CompileSource(const std::string& src, int shader_type)
     {
         unsigned int shader_id = glCreateShader(shader_type);
@@ -227,5 +215,17 @@ namespace Engine
         }
 
         return shader_srcs;
+    }
+
+
+
+    Ref<Shader> Shader::Create(const std::string& path)
+    {
+        return std::make_shared<OpenGLShader>(path);
+    }
+
+    Ref<Shader> Shader::Create(const std::string& vertex_shader_src, const std::string& fragment_shader_src)
+    {
+        return std::make_shared<OpenGLShader>(vertex_shader_src, fragment_shader_src);
     }
 }

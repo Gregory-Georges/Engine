@@ -59,7 +59,7 @@ public:
         /////////////////////////////////////
 
         TXT = Engine::Texture2D::Create("assets/textures/chess.png");
-        SHD = Engine::Shader::Create("assets/shaders/default.glsl");
+        SHD = SLB.Load("assets/shaders/default.glsl");
     }
 
     void OnDetach() override
@@ -118,6 +118,7 @@ private:
     Engine::Ref<Engine::VertexArray> VAO;
     Engine::Ref<Engine::Shader> SHD;
     Engine::Ref<Engine::Texture2D> TXT;
+    Engine::ShaderLibrary SLB;
 };
 
 
