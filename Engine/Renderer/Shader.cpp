@@ -7,13 +7,11 @@ namespace Engine
 {
     void ShaderLibrary::Add(const Ref<Shader>& shd, const std::string& name)
     {
-        #ifdef ENGINE_DEBUG
-        if(m_loadedShaders.find(name) != m_loadedShaders.end())
-            ENGINE_CORE_ERROR("Shader name " + name + " is already in the loaded shader list");
-        #endif // ENGINE_DEBUG
-
+        ENGINE_CORE_ASSERT(m_loadedShaders.find(name) == m_loadedShaders.end(), "Shader " + name + " is already in the loaded shader list")
         m_loadedShaders[name] = shd;
     }
+
+
 
     Ref<Shader> ShaderLibrary::Load(const std::string& path)
     {
@@ -41,9 +39,7 @@ namespace Engine
 
     Ref<Shader> ShaderLibrary::Get(const std::string& name)
     {
-        if(m_loadedShaders.find(name) == m_loadedShaders.end())
-            ENGINE_CORE_ERROR("Shader " + name + " is requested but not loaded");
-
+        ENGINE_CORE_ASSERT(m_loadedShaders.find(name) != m_loadedShaders.end(), std::string("Shader name " + name + " is not in the loaded shader list"));
         return m_loadedShaders[name];
     }
 }

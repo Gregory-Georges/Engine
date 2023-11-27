@@ -29,6 +29,12 @@ namespace Engine
 
 
 
+/*
+DO NOT INCLUDE MACRO CHECK IN GENERAL USAGE - ALREADY DEFINED HERE
+*/
+
+#ifdef ENGINE_DEBUG
+
 //Core macros for logging
 #define ENGINE_CORE_ERROR(x)  Engine::Log::GetCoreLogger()->error(x)
 #define ENGINE_CORE_INFO(x)   Engine::Log::GetCoreLogger()->info(x)
@@ -42,5 +48,33 @@ namespace Engine
 #define ENGINE_WARN(x)        Engine::Log::GetClientLogger()->warn(x)
 #define ENGINE_TRACE(x)       Engine::Log::GetClientLogger()->trace(x)
 #define ENGINE_FATAL(x)       Engine::Log::GetClientLogger()->fatal(x)
+
+
+
+
+
+
+#else
+
+//Core macros for logging
+#define ENGINE_CORE_ERROR(x)
+#define ENGINE_CORE_INFO(x)
+#define ENGINE_CORE_WARN(x)
+#define ENGINE_CORE_TRACE(x)
+#define ENGINE_CORE_FATAL(x)
+
+//Client macros for logging
+#define ENGINE_ERROR(x)
+#define ENGINE_INFO(x)
+#define ENGINE_WARN(x)
+#define ENGINE_TRACE(x)
+#define ENGINE_FATAL(x)
+
+#endif // ENGINE_DEBUG
+
+
+
+
+
 
 #endif // LOG_HPP
