@@ -7,6 +7,11 @@ namespace Engine
 {
     void ShaderLibrary::Add(const Ref<Shader>& shd, const std::string& name)
     {
+        #ifdef ENGINE_DEBUG
+        if(m_loadedShaders.find(name) != m_loadedShaders.end())
+            ENGINE_CORE_ERROR("Shader name " + name + " is already in the loaded shader list");
+        #endif // ENGINE_DEBUG
+
         m_loadedShaders[name] = shd;
     }
 
@@ -27,7 +32,7 @@ namespace Engine
 
         //Put in dictionnary
         std::string name = path.substr(pos + 1, stp - pos - 1);
-        m_loadedShaders[name] = shd;
+        Add(shd, name);
 
         return shd;
    }
