@@ -1,4 +1,3 @@
-require "codeblocks"
 workspace "stb"
     architecture "x64"
     configurations
