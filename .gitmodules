@@ -1,15 +1,15 @@
 [submodule "Dependencies/glfw"]
 	path = Dependencies/glfw
-	url = https://github.com/glfw/glfw
+	url = https://github.com/Gregory-Georges/glfw
 [submodule "Dependencies/fmt"]
 	path = Dependencies/fmt
-	url = https://github.com/fmtlib/fmt
+	url =https://github.com/Gregory-Georges/fmt
 [submodule "Dependencies/glm"]
 	path = Dependencies/glm
-	url = https://github.com/g-truc/glm
+	url = https://github.com/Gregory-Georges/glm
 [submodule "Dependencies/imgui"]
 	path = Dependencies/imgui
-	url = https://github.com/ocornut/imgui
+	url = https://github.com/Gregory-Georges/imgui
 [submodule "Dependencies/spdlog"]
 	path = Dependencies/spdlog
-	url = https://github.com/gabime/spdlog
+	url = https://github.com/Gregory-Georges/spdlog
