@@ -58,7 +58,7 @@ project "Engine"
         links
         {
             "Dependencies/fmt/fmt",
-            "Dependencies/glad/Glad",
+            "Dependencies/glad/glad",
             "Dependencies/glfw/src/glfw3",
             "Dependencies/imgui/imgui",
             "Dependencies/spdlog/spdlog",
@@ -122,7 +122,7 @@ project "Test"
             
             -- Links from Engine
             "Dependencies/fmt/fmt",
-            "Dependencies/glad/Glad",
+            "Dependencies/glad/glad",
             "Dependencies/glfw/src/glfw3",
             "Dependencies/imgui/imgui",
             "Dependencies/spdlog/spdlog",

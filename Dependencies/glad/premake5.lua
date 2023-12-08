@@ -1,5 +1,5 @@
 require "codeblocks"
-workspace "Glad"
+workspace "glad"
     architecture "x64"
     configurations
     {
@@ -8,7 +8,7 @@ workspace "Glad"
 
     outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
     
-	project "Glad"
+	project "glad"
 	    kind "StaticLib"
 	    language "C"
 	    staticruntime "off"
