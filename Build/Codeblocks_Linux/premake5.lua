@@ -1,3 +1,4 @@
+require "codeblocks"
 workspace "Engine"
     architecture "x64"
     configurations
