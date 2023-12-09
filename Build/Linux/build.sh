@@ -21,8 +21,10 @@ cd ../imgui
 cp backends/imgui_impl_opengl3_loader.h ./
 cp backends/imgui_impl_opengl3.h ./
 cp backends/imgui_impl_opengl3.cpp ./
+cp backends/imgui_impl_glfw.h ./
+cp backends/imgui_impl_glfw.cpp ./
 gcc -c *.cpp -Iinclude/
-ar rvs libimgui.a *.a
+ar rvs libimgui.a **.o
 
 cd ../spdlog
 cmake .
