@@ -35,6 +35,9 @@ bin-int/
 *.out
 *.app
 
+# Copied build files
+./premake5.lua
+
 # CodeBlocks files
 *.layout
 *.depend

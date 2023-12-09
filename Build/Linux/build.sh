@@ -1,4 +1,4 @@
-cp ./* ../../
+cp ./premake5.lua ../../
 cd ../../
 
 cd ./Dependencies/fmt
