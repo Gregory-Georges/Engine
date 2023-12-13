@@ -60,6 +60,7 @@ project "Engine"
             "Dependencies/fmt/fmt",
             "Dependencies/glad/glad",
             "Dependencies/glfw/src/glfw3",
+            "Dependencies/glm/glm",
             "Dependencies/imgui/imgui",
             "Dependencies/spdlog/spdlog",
             "Dependencies/stb/stb"
@@ -124,6 +125,7 @@ project "Test"
             "Dependencies/fmt/fmt",
             "Dependencies/glad/glad",
             "Dependencies/glfw/src/glfw3",
+            "Dependencies/glm/glm",
             "Dependencies/imgui/imgui",
             "Dependencies/spdlog/spdlog",
             "Dependencies/stb/stb"
