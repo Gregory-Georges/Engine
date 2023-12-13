@@ -45,6 +45,16 @@ premake5.lua
 *.layout
 *.cbp
 
+* Visualstudio files
+*.sln
+*.vcxproj
+*.vcxproj.*
+*.vs
+*.idb
+*.pdb
+*.user
+*.pdb
+
 #Valgring performance tests
 **/ValgrindOut.xml
 
